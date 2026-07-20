@@ -83,7 +83,7 @@ a { color: inherit; text-decoration: none; }
 .cursor-dot { transition: width 200ms ease, height 200ms ease, transform 80ms linear; }
 @media (hover: none) { .cursor-dot { display: none !important; } }
 
-/* Hide native cursor on interactive areas only on desktop with fine pointer */
+/* Hide native cursor on desktop with fine pointer so it doesn't conflict with custom cursor */
 @media (hover: hover) and (pointer: fine) {
-  html.has-custom-cursor, html.has-custom-cursor * { cursor: none !important; }
+  * { cursor: none !important; }
 }
