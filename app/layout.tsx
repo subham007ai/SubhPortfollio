@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import Cursor from "@/components/Cursor";
+import { SmoothCursor } from "@/registry/magicui/smooth-cursor";
 import PageTransition from "@/components/PageTransition";
 import { themeInitScript } from "@/lib/theme";
 
@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body>
-        <Cursor />
+        <SmoothCursor />
         <Nav />
         <PageTransition>{children}</PageTransition>
         <Footer />
