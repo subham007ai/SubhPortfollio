@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <PageTransition>{children}</PageTransition>
         <Footer />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
