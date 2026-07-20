@@ -6,14 +6,14 @@ export const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
    clip-path insets must keep identical units (%) or framer can't interpolate. */
 export const pageTransition: Variants = {
   initial: { clipPath: "inset(0% 100% 0% 0%)" },
-  enter:   { clipPath: "inset(0% 0% 0% 0%)", transition: { duration: 0.6, ease } },
+  animate: { clipPath: "inset(0% 0% 0% 0%)", transition: { duration: 0.6, ease } },
   exit:    { opacity: 0, scale: 0.98, transition: { duration: 0.3, ease } }
 };
 
 /* prefers-reduced-motion: instant swap, no wipe */
 export const pageTransitionReduced: Variants = {
   initial: { opacity: 0 },
-  enter:   { opacity: 1, transition: { duration: 0.01 } },
+  animate: { opacity: 1, transition: { duration: 0.01 } },
   exit:    { opacity: 0, transition: { duration: 0.01 } }
 };
 

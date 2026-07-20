@@ -12,9 +12,6 @@ export default function PageTransition({ children }: { children: React.ReactNode
       <motion.main
         key={pathname}
         variants={reduceMotion ? pageTransitionReduced : pageTransition}
-        initial="initial"
-        animate="enter"
-        exit="exit"
         className="min-h-[60vh]"
       >
         {children}
