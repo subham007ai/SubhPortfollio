@@ -14,7 +14,7 @@ export default function NotesPage() {
         Notes from<br /><span className="text-fg/60">the build.</span>
       </h1>
       <p className="text-muted max-w-xl mb-16">
-        Short writing as the AI/ML arc unfolds — what worked, what broke, what I'd do differently.
+        Short writing as the AI/ML arc unfolds — what worked, what broke, what I&apos;d do differently.
       </p>
 
       {notes.length === 0 ? (
