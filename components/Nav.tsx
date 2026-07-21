@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 import { profile } from "@/content/profile";
 import { ease } from "@/lib/motion";
@@ -35,6 +35,20 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    // Hide header if scrolling down past 100px. Reveal if scrolling up.
+    // Also, never hide if the mobile menu is open.
+    if (latest > 100 && latest > previous && !open) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
+
   useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
@@ -53,7 +67,12 @@ export default function Nav() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 backdrop-blur-md bg-bg/70 border-b hairline border-b-line">
+      <motion.header 
+        variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
+        animate={hidden ? "hidden" : "visible"}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+        className="sticky top-0 z-40 backdrop-blur-md bg-bg/70 border-b hairline border-b-line"
+      >
         <div className="mx-auto max-w-content px-5 md:px-10 h-14 flex items-center justify-between gap-3">
           <Link href="/" className="flex items-center gap-2.5 shrink-0">
             <motion.span
@@ -106,7 +125,7 @@ export default function Nav() {
             </button>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       {mounted && createPortal(
         <AnimatePresence>
