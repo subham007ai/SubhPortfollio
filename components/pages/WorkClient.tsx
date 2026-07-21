@@ -100,7 +100,7 @@ function ProjectCard({ project: p, open, onToggle, index, onPhoto }: { project: 
               alt={p.title}
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
             />
           ) : (
             <MeshCover seed={p.id} className="absolute inset-0 w-full h-full" />
@@ -174,7 +174,7 @@ function ProjectCard({ project: p, open, onToggle, index, onPhoto }: { project: 
                           alt={s.caption}
                           fill
                           sizes="(min-width:768px) 12vw, 50vw"
-                          className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
                         />
                       </button>
                     ))}
