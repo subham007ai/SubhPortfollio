@@ -24,13 +24,13 @@ export const projects: Project[] = [
     title: "Blue Water Film Productions",
     kind: "Web",
     year: "2026",
-    one: "Official site for a social-impact cinema studio — deep-navy and gold cinematic brand system, 12-section single-page build.",
+    one: "Official web home of a social-impact cinema studio — deep-navy and gold, twelve deliberate sections, a flagship film called PRAHARI.",
     problem:
-      "Blue Water Film Productions International (BWFPI) — a social-impact cinema studio — needed an official site that could sell an ambitious slate to partners and investors: the flagship OTT action-thriller PRAHARI, three upcoming productions, full production services and leadership, all under a strict brand book.",
+      "BWFPI came to us with the kind of brief that's exciting and terrifying at the same time — build the official web home of a social-impact cinema studio whose slate reads like it belongs on a Cannes wall: a flagship OTT global action-thriller called PRAHARI, three upcoming productions (Market, Medical Secrets, Common Man), a chairman, a director, real ambition. The site had to sell an idea. Investors, festival partners and eventual audiences would meet the studio here first — and studios don't get a second chance to feel small.",
     approach:
-      "A 12-section single-page cinematic site in Next.js 16 + Tailwind CSS 4, following the BWFPI brand book strictly — Cinzel display type, Montserrat body, deep-navy / ocean-blue / metallic-gold palette. Ken Burns hero, live scroll-progress indicator, custom Reveal scroll-in system, film-strip section dividers, per-film feature sections with budget/runtime stat rows, and a project-enquiry form.",
+      "Twelve deliberate sections in a single cinematic scroll — hero, studio philosophy, six thematic pillars of impact films, the PRAHARI feature block, three upcoming productions, global vision, services, a manifesto, leadership, contact. Next.js 16 App Router with Turbopack, React 19, Tailwind 4. Held the brand book strict — deep navy #021633 base, ocean blue #0A3D7A, sky blue #4DA9E6 for CTAs, metallic gold #D4AF37 for accents. Cinzel Bold for headlines and film titles so the type carries the weight of a poster; Montserrat everywhere else so paragraphs actually read. Built a custom Reveal scroll-in component, Ken-Burns hero animation, a live scroll-progress indicator in the header, pulse-ring and shimmer accents on the gold. The PRAHARI section shows real numbers because the ambition is real — ₹110 Cr production, ₹60 Cr VFX, 2h 40m runtime — and hiding that behind vague copy would have undersold the film.",
     outcome:
-      "A live studio site that reads like a film pitch deck — atmospheric, brand-faithful, and built to convert partnership enquiries. Second real client build shipped in 2026.",
+      "A studio site that reads like it was made by the studio, not for it. Chairman's enquiry form is wired end-to-end, live at blue-water-films.vercel.app. Second real client build I've shipped in 2026 — and the one where I stopped thinking of myself as someone practicing web design and started thinking of myself as someone who ships it.",
     stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "Lucide", "Custom scroll system"],
     links: [
       { label: "Live", href: "https://blue-water-films.vercel.app/" },
@@ -53,13 +53,13 @@ export const projects: Project[] = [
     title: "Odisha International Short Film Festival",
     kind: "Web",
     year: "2026",
-    one: "The official site for Odisha's first international short-film festival — bronze-gold editorial system, Sanskrit-serif type.",
+    one: "The web home of Odisha's first international short-film festival — bronze, vermilion, gold on deep espresso, Sanskrit-serif type, Konark-chakra iconography.",
     problem:
-      "Odisha's first international short film festival needed a site that read as a real cultural institution the moment it loaded — old-world film-poster grandeur, but built like a modern web app that handles submissions, programs, gallery and news feeds.",
+      "Odisha's first international short-film festival needed a web home before it ran its first edition — not a placeholder, a real one, the studio's face when it went out to filmmakers, sponsors and audiences. Cultural-institution vibes, not startup vibes. And I had six weeks.",
     approach:
-      "Full stack — design + build, as an internship over a 6-week sprint starting 20 July. Built a bespoke editorial system in Next.js: a bronze / vermilion / gold palette on a deep espresso ground, custom Cinzel-style serif for headings, Konark-chakra iconography, ornamental gold dividers. Countdown, mission grid ('Not just a festival. A movement.'), programs matrix, cultural preservation strip, film-categories directory, gallery, news, and film-submission intake — all responsive across 375/768/1440+.",
+      "Bronze, vermilion, and gold on a deep espresso ground. Custom Sanskrit-serif headings so the type carries the weight of the tradition the festival is representing. Konark-chakra iconography — a nod to Odishan cultural history that lives in the site's DNA, not just its palette. Ornamental gold dividers, atmospheric hero, countdown timer counting down to the first edition. The section list was long: mission grid ('Not just a festival. A movement.'), programs matrix (community cinema, workshops, feature-film incubator, cultural preservation), film-categories directory, gallery, news feed, and a film-submission intake form that will start collecting real entries soon. All of it responsive across 375, 768 and 1440+. Built as an internship — my first real client work in the wild, on a six-week sprint.",
     outcome:
-      "A live festival site that feels earned rather than templated — atmospheric, culturally rooted, and shippable at scale. First serious client work in the wild.",
+      "A live festival site that feels earned rather than templated. Culturally rooted, atmospheric, and built so submissions can actually start coming in. The tag on my homepage reads 'freelance & internships' — this is the project that put it there.",
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Custom design system"],
     links: [
       { label: "Live", href: "https://www.odishafilmsociety.in/" }
@@ -81,13 +81,13 @@ export const projects: Project[] = [
     title: "Face Mask Detection",
     kind: "ML",
     year: "2025",
-    one: "Real-time mask detection — 3 CNNs benchmarked, EfficientNetB0 wins.",
+    one: "Point a webcam at a face, get 'Mask' or 'No Mask' in real time. Fourth-semester group project — three CNNs benchmarked, EfficientNetB0 shipped.",
     problem:
-      "A real-time face mask detection web app for a 4-person 4th-semester project — built so anyone could point a webcam at a face and get an instant prediction with confidence.",
+      "Fourth semester. Four of us in a group project that needed to actually work — not just compile, actually work. Point a webcam at a face, get 'Mask' or 'No Mask' in real time with a confidence score. Textbook idea. But the textbook doesn't tell you what to do when your model returns 100% accuracy on the test set.",
     approach:
-      "Owned the data and EDA layer: class distribution, image preprocessing pipeline, and the data generators feeding into transfer-learning runs of EfficientNetB0, MobileNetV2 and ResNet50. Models compared head-to-head on a held-out test set of 1,726 images, then served live via a Flask + MJPEG streaming app with OpenCV Haar-cascade face detection.",
+      "Four people, four honest roles. I owned the data and EDA layer — class distribution, image preprocessing pipeline, and the data generators that fed transfer-learning runs of EfficientNetB0, MobileNetV2 and ResNet50 (Avijit trained; I made sure the plates arrived clean). Soumya built the Flask app with async inference in a background thread, frame-skipping every 3rd frame, and half-resolution face detection so the whole thing runs at 30-ish FPS on CPU — no GPU required. Sreyan ran the comparative evaluation on a 1,726-image held-out test set (863 per class): accuracy, precision, recall, F1, ROC-AUC, PR curves, confusion matrices, the whole battery.\n\nEfficientNetB0's numbers came back suspiciously perfect. 100% across the board. First instinct in a college project is to celebrate; the honest instinct is to check for leakage in your train/test split. We did — the split was clean, the labels weren't contaminated, and the model just happened to be that well-suited to a class-balanced, image-clean binary task. MobileNetV2's 99.59% was the more emotionally believable number.",
     outcome:
-      "EfficientNetB0 scored a suspiciously clean 100% on the held-out set — we treated that as a flag, not a win: checked the split for leakage and re-ran evaluation before trusting it. MobileNetV2 (99.59%) was the honest runner-up. EfficientNetB0 still shipped on size-to-accuracy: ~49MB weights vs ResNet50's 283MB, smooth real-time inference in the browser.",
+      "EfficientNetB0 shipped as the production model — not because it scored highest, but because it hit the best size-to-accuracy ratio: ~49 MB of weights vs ResNet50's 283 MB. MobileNetV2 stays in the repo as the honest runner-up. The Flask app streams annotated video via MJPEG with a live bounding box and confidence score in the browser. It's a group project I'm actually proud of — because it works, and because we didn't fake the numbers to make them look better.",
     stack: ["Python", "TensorFlow/Keras", "OpenCV", "Flask", "EfficientNet", "Pandas"],
     links: [
       { label: "GitHub", href: "https://github.com/subham007ai/Face-Mask-detection" }
@@ -106,13 +106,13 @@ export const projects: Project[] = [
     title: "Sitora — Creative Agency",
     kind: "Web",
     year: "2025",
-    one: "Premium agency site — scroll-driven accent themes, generative covers.",
+    one: "A fictional creative agency portfolio built to see if I could hit premium without a template. Scroll-driven accent themes, generative cover art, a real cost calculator.",
     problem:
-      "A high-end web design studio portfolio that had to feel premium on every section — not a generic Tailwind template.",
+      "Wanted to see if I could build a portfolio for a fictional creative agency that felt genuinely premium — not premium in the Bootstrap-template way, premium in the way a real studio's site feels when you land on it and immediately trust them. High bar. Also: if I could build this from scratch, no template, I'd know I could build one for a real client.",
     approach:
-      "Built dynamic accent theming via IntersectionObserver — sections declare colour palettes via data attributes, root CSS variables transition on scroll. Layered with filmic grain, custom radial Aurora glows, generative SVG cover art (turbulence + gaussian blur composite matrices), Lenis-smoothed scrolling, and an interactive scope-cost calculator that feeds straight into a multi-step contact form (Zod + React Hook Form).",
+      "Next.js 15 App Router, React 19, Tailwind 3. The centerpiece is a dynamic accent-theme system driven by IntersectionObserver — sections declare their palette via `data-accent` and `data-accent-2` attributes, and root CSS variables (--accent, --accent-rgb) transition on the fly as you scroll. No re-renders, just live color inheritance across the whole page.\n\nLayered a filmic grain overlay across the whole page and custom radial Aurora glows behind hero moments — the kind of atmospheric depth you see in high-end developer consoles. Built a MeshCover component that generates deterministic seeded SVG cover art per project using turbulence, gaussian blur, and composite color matrices — organic, unique, no stock images. Lenis for kinetic smooth scroll. Mask-clipped kinetic text reveals. Magnetic hover states.\n\nThe interactive scope-cost calculator on /pricing was the piece I cared about most — three sliders (project complexity from landing page to custom platform, motion fidelity from static to immersive GSAP, backend integrations from none to complex APIs), an INR ↔ USD toggle with GST handling on Indian pricing, and the estimated budget + timeline flow straight into the multi-step contact form on the next click. Contact form is Zod-validated, React Hook Form-powered, with a hidden honeypot field (website_hp) that silently filters bot submissions.",
     outcome:
-      "Atmospheric, distinctive portfolio that doesn't read like an agency template. Real estimator and intake flow — not a brochure.",
+      "An atmospheric portfolio that doesn't read like an agency template — because it isn't one. Every module (calculator, form, MeshCover, accent theme) is bespoke. This is the project where I stopped writing HTML and started building interfaces.",
     stack: ["Next.js 15", "React 19", "Tailwind 3", "Framer Motion", "Lenis", "Zod"],
     links: [
       { label: "Live", href: "https://websiteagencydesign.vercel.app/" },
@@ -130,13 +130,13 @@ export const projects: Project[] = [
     title: "Kalinga Fitness Gym",
     kind: "Web",
     year: "2025",
-    one: "Static, SEO-tuned gym site with a WhatsApp lead engine.",
+    one: "A neighbourhood gym near SUM Hospital — 100% static, zero backend, and every trial signup lands as a pre-filled WhatsApp message on the owner's phone.",
     problem:
-      "Small local gym near SUM Hospital needed a real lead-capture site without a backend or per-month hosting cost.",
+      "A small neighbourhood gym near SUM Hospital in Bhubaneswar. The owner didn't want a monthly-hosting-fee CMS thing. He wanted a website that could get warm leads to his phone. That's the whole requirement — turn a stranger visiting the site into a WhatsApp conversation with him.",
     approach:
-      "Static HTML export off Next.js 16 — sitemaps, JSON-LD HealthClub schema, semantic landmarks. Trial signup goes serverless: form data is URL-encoded into a pre-filled WhatsApp message to the gym owner. Dedicated /visit page targets local search. Interactive before/after slider via clip-path; Google reviews carousel via stateful intervals. Animations use raw IntersectionObserver — zero React state overhead, honours prefers-reduced-motion.",
+      "Next.js 16 with `output: \"export\"` — 100% static HTML, hosted for free. No backend, no database, no leads table to babysit. The trial signup form URL-encodes name + phone + fitness goal into a pre-filled WhatsApp message that opens the gym owner's chat directly on the tap. Warm lead in one click.\n\nBuilt a dedicated /visit page targeting local search — Google Maps embed, tap-to-call `tel:` link, email link, structured JSON-LD HealthClub schema, semantic HTML5 landmarks. Sitemap auto-generated via next-sitemap. Scroll animations use raw IntersectionObserver (zero React state, zero re-renders) and honour prefers-reduced-motion. Dark editorial theme — ink backgrounds (#0A0A0B, #101012, #17171A) with a single volt accent (#CCFF3E) reserved for CTAs and active UI. Anton for display type, Space Grotesk for headings, Inter for body — WCAG AA compliant contrast throughout. Interactive before/after transformation slider using a clip-path clip track driven by a range input. Google Reviews carousel with stateful React intervals, fade transitions, and manual dot navigation.",
     outcome:
-      "100% static, zero-cost hosting, real warm leads routed straight to the owner's phone.",
+      "Zero-cost hosting, real warm leads routing straight to the gym owner's phone. My first project where the business logic wasn't the code — it was the choice not to write code at all. Serverless in the truest sense.",
     stack: ["Next.js 16", "Tailwind 4", "TypeScript", "next-sitemap", "IntersectionObserver"],
     links: [
       { label: "Live", href: "https://kalinga-fitness-gym-weld.vercel.app/" },
@@ -155,13 +155,13 @@ export const projects: Project[] = [
     title: "Utkal Dental Care",
     kind: "Web",
     year: "2025",
-    one: "Atelier-style concept redesign for a Bhubaneswar dental clinic.",
+    one: "A concept redesign for a Bhubaneswar dental, skin, and hair clinic — warm cream, near-black ink, one vermilion accent, and a first-visit timeline that reads like a hand-hold.",
     problem:
-      "A patient-facing site that needed to feel warm and clinical at the same time — most dental sites swing too far one way.",
+      "Most dental clinic websites swing to one of two extremes — sterile and cold like a hospital, or oversold and cheerful like a spa. I wanted to try a concept redesign that could sit exactly in the middle. Warm, but clinical. Professional, but not intimidating. A patient facing the site should feel taken care of — not sold to.",
     approach:
-      "Built the Atelier design system — warm cream/bone tones, near-black warm ink type, vermilion clay accent. Stats counters, vertical-to-horizontal visit timeline, drag-enabled before/after slider for treatments, scroll reveals. Pixel-perfect across 375/768/1240+.",
+      "Built the Atelier design system from scratch — cream backgrounds (#F3F0E9) with warm ink type (#15130F), soft paper surfaces (#FBF9F3) for cards, and a single vibrant vermilion accent (#E4572E) reserved for CTAs and step badges. Soft-shadow component widgets for treatment cards. Next.js 14 App Router with Tailwind and Tabler Icons.\n\nStats dashboard widgets with hover translations. A visit timeline that goes vertical on mobile and horizontal on desktop, walking a patient through what a first appointment actually feels like — check-in, consultation, diagnosis, treatment plan. Drag-enabled before/after slider for showcasing dental, skin, and hair treatment transformations. Scroll-reveal micro-interactions on every section. A unified sticky header and structured footer with contact details, business hours, and every internal route. Pixel-perfect across 375, 768, and 1240+.",
     outcome:
-      "Calm, professional clinic site that still has visual personality.",
+      "A calm, professional clinic site that still has visual personality. This one taught me that restraint is a design decision — every time I wanted to add another accent color or another shadow, cutting it made the page better.",
     stack: ["Next.js 14", "Tailwind", "Tabler Icons", "TypeScript"],
     links: [
       { label: "Live", href: "https://dental-website-design-2.vercel.app/" },

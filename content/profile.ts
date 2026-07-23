@@ -20,5 +20,5 @@ export const profile = {
     "I freelance on the side — mostly premium web design work where I push Next.js, Tailwind and Framer Motion as far as they'll go. Web is the interface for everything I'll build in ML.",
     "Open to collaborations, internships and conversations with people who care about building things that work in the real world."
   ],
-  creed: "Narrow and deep beats wide and shallow. Ship the thing."
+  creed: "Your life won't change until you become the priority."
 };

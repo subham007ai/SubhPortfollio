@@ -64,9 +64,14 @@ export default function FeaturedWork() {
           className="flex gap-4 md:gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-px-6 md:scroll-px-10 -mx-6 md:-mx-10 px-6 md:px-10"
         >
           {featured.map((p, i) => (
-            <div key={p.id} data-card role="listitem" className="snap-start shrink-0 w-[80vw] md:w-[42vw] max-w-[540px]">
+            <div
+              key={p.id}
+              data-card
+              role="listitem"
+              className="snap-start shrink-0 w-[80vw] md:w-[42vw] max-w-[540px]"
+            >
               <Link
-                href={`/work?p=${p.id}`}
+                href={`/work/${p.id}`}
                 className="group block border hairline border-line rounded-2xl p-5 md:p-6 h-full hover:bg-line/40 transition-colors"
               >
                 <div className="aspect-[16/10] rounded-xl bg-line/40 mb-5 overflow-hidden relative">
