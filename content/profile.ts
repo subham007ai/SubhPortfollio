@@ -13,10 +13,10 @@ export const profile = {
     instagram: ""
   },
   shortBio:
-    "Second-year B.Tech CS-AIML at SOA University. Building real-world projects in machine learning, computer vision and automation — learning by shipping.",
+    "B.Tech CS-AIML · 2024–2028 · SOA University. Building real-world projects in machine learning, computer vision and web — learning by shipping.",
   longBio: [
-    "I'm Subham — a second-year B.Tech student specialising in Artificial Intelligence and Machine Learning at Siksha 'O' Anusandhan University, Bhubaneswar.",
-    "Right now I'm working through a structured 12-month AI/ML engineering arc — Python and the data stack first, then classical ML, deep learning, and finally LLM apps and agents.",
+    "I'm Subham — a B.Tech Computer Science student specialising in Artificial Intelligence and Machine Learning at Siksha 'O' Anusandhan University, Bhubaneswar (2024–2028).",
+    "Right now I'm working through a structured AI/ML engineering path — Python and the data stack first, then classical ML, deep learning, and finally LLM apps and agents.",
     "I freelance on the side — mostly premium web design work where I push Next.js, Tailwind and Framer Motion as far as they'll go. Web is the interface for everything I'll build in ML.",
     "Open to collaborations, internships and conversations with people who care about building things that work in the real world."
   ],

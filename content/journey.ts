@@ -33,6 +33,6 @@ export const journey: Stop[] = [
     year: "Oct 2024 – Jan 2028",
     school: "Siksha 'O' Anusandhan University",
     detail: "B.Tech Computer Science · Artificial Intelligence & Machine Learning",
-    note: "Where the AI/ML arc actually begins. Currently 2nd year."
+    note: "Where the AI/ML arc actually begins."
   }
 ];

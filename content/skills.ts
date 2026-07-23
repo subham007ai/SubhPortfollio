@@ -1,9 +1,9 @@
 export type SkillGroup = { label: string; items: string[] };
 
 export const topSkills = [
-  { name: "Exploratory Data Analysis", meaning: "Loading, cleaning, charting — the first 80% of any model worth shipping." },
-  { name: "Computer Vision", meaning: "Mask detection · classification · transfer learning with PyTorch and OpenCV." },
-  { name: "Git", meaning: "Real branches, real PRs, real history — not just `git add .`." }
+  { name: "Web Engineering", meaning: "Next.js, React, TypeScript, Tailwind. Client sites that ship on time and load fast." },
+  { name: "Computer Vision", meaning: "Transfer learning · model comparison · honest evaluation. Where 100% accuracy is a warning, not a win." },
+  { name: "Design Systems", meaning: "A bespoke palette, type stack and motion language per client — Konark chakra for OISFF, Cinzel gold for BWFPI." }
 ];
 
 export const fullStack: SkillGroup[] = [

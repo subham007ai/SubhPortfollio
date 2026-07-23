@@ -42,7 +42,7 @@ export default function Hero() {
           transition={{ duration: 0.7, ease, delay: 0.6 }}
           className="mt-10 text-fg text-xl md:text-2xl leading-snug max-w-xl"
         >
-          AI engineering student at SOA. Shipping Python, ML and web projects in public — narrow and deep beats wide and shallow.
+          AI engineering student at SOA. Shipping Python, ML and web in public — because your life won&rsquo;t change until you become the priority.
         </motion.p>
       </div>
     </section>
