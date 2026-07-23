@@ -22,7 +22,13 @@ export default function Lightbox({ photo, onClose }: { photo: LightboxPhoto | nu
       invokerRef.current = document.activeElement as HTMLElement | null;
       // wait for the enter animation to mount the button
       const t = setTimeout(() => closeRef.current?.focus(), 60);
-      return () => clearTimeout(t);
+      // lock body scroll so mobile touches don't drift the page behind the modal
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        clearTimeout(t);
+        document.body.style.overflow = prevOverflow;
+      };
     }
     invokerRef.current?.focus();
     invokerRef.current = null;
@@ -36,7 +42,7 @@ export default function Lightbox({ photo, onClose }: { photo: LightboxPhoto | nu
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3, ease }}
-          className="fixed inset-0 z-[90] bg-bg/95 backdrop-blur-sm grid place-items-center p-6"
+          className="fixed inset-0 z-[90] bg-bg grid place-items-center p-6 overflow-y-auto"
           onClick={onClose}
         >
           <motion.div
