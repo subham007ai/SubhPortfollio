@@ -16,8 +16,14 @@ const CELL = 10;
 const GAP = 2;
 const STEP = CELL + GAP;
 const TOP = 18; // room for month labels
-/* Heatmap SVG dimensions are ~53 weeks * 12px + 18px header — reserve
-   this height on the skeleton so layout doesn't jump when data arrives. */
+
+/* Rolling window — user requested 6 months for now, may pin to a specific
+   range like "June → December" later. Change WEEKS_TO_SHOW to adjust. */
+const WEEKS_TO_SHOW = 26;
+const DAYS_TO_SHOW = WEEKS_TO_SHOW * 7;
+/* Skeleton reserves worst-case width (27 weeks) so there's no jump when
+   real data resolves and padding pushes the grid to 27 weeks wide. */
+const SKELETON_WEEKS = WEEKS_TO_SHOW + 1;
 const RESERVED_H = TOP + 7 * STEP - GAP;
 
 export default function GitHubActivity() {
@@ -34,9 +40,11 @@ export default function GitHubActivity() {
         );
         if (!res.ok) throw new Error("bad status");
         const json: ApiResponse = await res.json();
-        const days = json.contributions ?? [];
-        if (days.length === 0) throw new Error("empty");
-        const total = json.total?.lastYear ?? days.reduce((s, d) => s + d.count, 0);
+        const allDays = json.contributions ?? [];
+        if (allDays.length === 0) throw new Error("empty");
+        // Slice to the last WEEKS_TO_SHOW * 7 days and recompute total for that window
+        const days = allDays.slice(-DAYS_TO_SHOW);
+        const total = days.reduce((s, d) => s + d.count, 0);
         if (!cancelled) setData({ days, total });
       } catch {
         if (!cancelled) setFailed(true);
@@ -50,6 +58,20 @@ export default function GitHubActivity() {
 
   return (
     <section className="mx-auto max-w-content px-6 md:px-10 py-12 md:py-16">
+      {/* Global SVG filter defs — invisible, shared by heatmap + legend swatches.
+          Cells with level ≥ 2 apply this to get a soft LED-like glow. */}
+      <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
+        <defs>
+          <filter id="cell-glow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="1.4" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+      </svg>
+
       <div className="flex items-end justify-between mb-8">
         <div>
           <div className="dot-matrix mb-3">Activity · @{USERNAME}</div>
@@ -77,18 +99,19 @@ export default function GitHubActivity() {
 
       <div className="mt-4 flex items-center justify-between flex-wrap gap-3">
         <span className="dot-matrix">
-          {data ? `${data.total} contributions · last 12 months` : "Loading activity…"}
+          {data ? `${data.total} contributions · last 6 months` : "Loading activity…"}
         </span>
         <span className="flex items-center gap-1.5" aria-hidden="true">
           <span className="dot-matrix mr-1">Less</span>
           {[0, 1, 2, 3, 4].map(l => (
-            <svg key={l} width={CELL} height={CELL}>
+            <svg key={l} width={CELL} height={CELL} style={{ overflow: "visible" }}>
               <rect
                 width={CELL}
                 height={CELL}
                 rx={2}
                 fill={l === 0 ? "var(--line)" : "var(--signal)"}
                 fillOpacity={l === 0 ? 1 : OPACITY[l]}
+                filter={l >= 2 ? "url(#cell-glow)" : undefined}
               />
             </svg>
           ))}
@@ -100,9 +123,8 @@ export default function GitHubActivity() {
 }
 
 function Skeleton() {
-  // 53 weeks * 7 days ≈ standard heatmap grid — render as an empty grid of --line cells.
   const cells = [];
-  for (let wi = 0; wi < 53; wi++) {
+  for (let wi = 0; wi < SKELETON_WEEKS; wi++) {
     for (let di = 0; di < 7; di++) {
       cells.push(
         <rect
@@ -117,7 +139,7 @@ function Skeleton() {
       );
     }
   }
-  const width = 53 * STEP - GAP;
+  const width = SKELETON_WEEKS * STEP - GAP;
   return (
     <svg width={width} height={RESERVED_H} viewBox={`0 0 ${width} ${RESERVED_H}`} aria-hidden="true">
       {cells}
@@ -159,7 +181,8 @@ function Heatmap({ data }: { data: Data }) {
       height={height}
       viewBox={`0 0 ${width} ${height}`}
       role="img"
-      aria-label={`GitHub contribution heatmap: ${total} contributions in the last 12 months`}
+      aria-label={`GitHub contribution heatmap: ${total} contributions in the last 6 months`}
+      style={{ overflow: "visible" }}
     >
       {monthLabels.map(({ x, label }) => (
         <text
@@ -187,6 +210,7 @@ function Heatmap({ data }: { data: Data }) {
               rx={2}
               fill={day.level === 0 ? "var(--line)" : "var(--signal)"}
               fillOpacity={day.level === 0 ? 1 : OPACITY[day.level]}
+              filter={day.level >= 2 ? "url(#cell-glow)" : undefined}
             >
               <title>{`${day.date} · ${day.count} contribution${day.count === 1 ? "" : "s"}`}</title>
             </rect>
