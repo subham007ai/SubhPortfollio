@@ -5,25 +5,31 @@ import { profile } from "@/content/profile";
 
 type Day = { date: string; count: number; level: 0 | 1 | 2 | 3 | 4 };
 type ApiResponse = { total?: { lastYear?: number }; contributions?: Day[] };
-type Data = { days: Day[]; total: number };
+type Data = { days: Day[]; total: number; startDate: string };
 
 const USERNAME = "subham007ai";
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const FULL_MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
 /* fill opacity per contribution level 1–4; level 0 uses --line */
 const OPACITY = [0, 0.22, 0.45, 0.7, 1];
 
-const CELL = 10;
-const GAP = 2;
+/* Cell metrics — bumped from 10/2 to 14/3 so the shorter window still
+   reads as substantial rather than a stubby strip. */
+const CELL = 14;
+const GAP = 3;
 const STEP = CELL + GAP;
-const TOP = 18; // room for month labels
+const TOP = 22; // room for month labels
 
-/* Rolling window — user requested 6 months for now, may pin to a specific
-   range like "June → December" later. Change WEEKS_TO_SHOW to adjust. */
-const WEEKS_TO_SHOW = 26;
-const DAYS_TO_SHOW = WEEKS_TO_SHOW * 7;
-/* Skeleton reserves worst-case width (27 weeks) so there's no jump when
-   real data resolves and padding pushes the grid to 27 weeks wide. */
-const SKELETON_WEEKS = WEEKS_TO_SHOW + 1;
+/* Hard-coded start date — the "when the priority shifted" moment.
+   Change this one string to slide the window. Anything before this
+   date is trimmed out even if it has activity. */
+const START_DATE = "2026-05-01";
+
+/* Skeleton reserves a reasonable width until real data resolves. */
+const SKELETON_WEEKS = 14;
 const RESERVED_H = TOP + 7 * STEP - GAP;
 
 export default function GitHubActivity() {
@@ -42,10 +48,13 @@ export default function GitHubActivity() {
         const json: ApiResponse = await res.json();
         const allDays = json.contributions ?? [];
         if (allDays.length === 0) throw new Error("empty");
-        // Slice to the last WEEKS_TO_SHOW * 7 days and recompute total for that window
-        const days = allDays.slice(-DAYS_TO_SHOW);
+        /* Slice from START_DATE onwards. If START_DATE is before the
+           API's earliest returned day, we just start at the earliest. */
+        const startIdx = Math.max(0, allDays.findIndex(d => d.date >= START_DATE));
+        const days = allDays.slice(startIdx);
+        if (days.length === 0) throw new Error("no window");
         const total = days.reduce((s, d) => s + d.count, 0);
-        if (!cancelled) setData({ days, total });
+        if (!cancelled) setData({ days, total, startDate: days[0].date });
       } catch {
         if (!cancelled) setFailed(true);
       }
@@ -56,6 +65,8 @@ export default function GitHubActivity() {
   // Silently hide the section if the API is unreachable — no error splash on Home.
   if (failed) return null;
 
+  const startLabel = data ? formatStart(data.startDate) : "";
+
   return (
     <section className="mx-auto max-w-content px-6 md:px-10 py-12 md:py-16">
       {/* Global SVG filter defs — invisible, shared by heatmap + legend swatches.
@@ -63,7 +74,7 @@ export default function GitHubActivity() {
       <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
         <defs>
           <filter id="cell-glow" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur stdDeviation="1.4" result="blur" />
+            <feGaussianBlur stdDeviation="1.8" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
@@ -99,7 +110,7 @@ export default function GitHubActivity() {
 
       <div className="mt-4 flex items-center justify-between flex-wrap gap-3">
         <span className="dot-matrix">
-          {data ? `${data.total} contributions · last 6 months` : "Loading activity…"}
+          {data ? `${data.total} contributions · since ${startLabel}` : "Loading activity…"}
         </span>
         <span className="flex items-center gap-1.5" aria-hidden="true">
           <span className="dot-matrix mr-1">Less</span>
@@ -108,7 +119,7 @@ export default function GitHubActivity() {
               <rect
                 width={CELL}
                 height={CELL}
-                rx={2}
+                rx={3}
                 fill={l === 0 ? "var(--line)" : "var(--signal)"}
                 fillOpacity={l === 0 ? 1 : OPACITY[l]}
                 filter={l >= 2 ? "url(#cell-glow)" : undefined}
@@ -122,6 +133,12 @@ export default function GitHubActivity() {
   );
 }
 
+function formatStart(date: string): string {
+  const d = new Date(date);
+  const m = FULL_MONTHS[d.getMonth()];
+  return `${m} ${d.getFullYear()}`;
+}
+
 function Skeleton() {
   const cells = [];
   for (let wi = 0; wi < SKELETON_WEEKS; wi++) {
@@ -133,7 +150,7 @@ function Skeleton() {
           y={TOP + di * STEP}
           width={CELL}
           height={CELL}
-          rx={2}
+          rx={3}
           fill="var(--line)"
         />
       );
@@ -148,7 +165,7 @@ function Skeleton() {
 }
 
 function Heatmap({ data }: { data: Data }) {
-  const { days, total } = data;
+  const { days, total, startDate } = data;
   // pad the front so the first column starts on Sunday
   const firstDow = new Date(days[0].date).getDay();
   const cells: (Day | null)[] = [...Array<null>(firstDow).fill(null), ...days];
@@ -175,21 +192,23 @@ function Heatmap({ data }: { data: Data }) {
     }
   });
 
+  const startLabel = formatStart(startDate);
+
   return (
     <svg
       width={width}
       height={height}
       viewBox={`0 0 ${width} ${height}`}
       role="img"
-      aria-label={`GitHub contribution heatmap: ${total} contributions in the last 6 months`}
+      aria-label={`GitHub contribution heatmap: ${total} contributions since ${startLabel}`}
       style={{ overflow: "visible" }}
     >
       {monthLabels.map(({ x, label }) => (
         <text
           key={`${label}-${x}`}
           x={x}
-          y={10}
-          fontSize={9}
+          y={12}
+          fontSize={10}
           letterSpacing={1}
           fill="var(--muted)"
           fontFamily="var(--font-mono), monospace"
@@ -207,7 +226,7 @@ function Heatmap({ data }: { data: Data }) {
               y={TOP + di * STEP}
               width={CELL}
               height={CELL}
-              rx={2}
+              rx={3}
               fill={day.level === 0 ? "var(--line)" : "var(--signal)"}
               fillOpacity={day.level === 0 ? 1 : OPACITY[day.level]}
               filter={day.level >= 2 ? "url(#cell-glow)" : undefined}
