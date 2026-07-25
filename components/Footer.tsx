@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { profile } from "@/content/profile";
 import { routes } from "@/lib/routes";
+import PixelBot from "@/components/PixelBot";
 
 export default function Footer() {
   const [theme, setTheme] = useState<"DRK" | "LGT">("DRK");
@@ -17,11 +18,14 @@ export default function Footer() {
 
   return (
     <footer className="relative">
-      {/* Top hairline label */}
-      <div className="flex items-center gap-4 px-6 md:px-10 max-w-content mx-auto pt-12">
-        <span className="flex-1 h-px bg-line" />
-        <span className="dot-matrix">[ END · OF · PAGE ]</span>
-        <span className="flex-1 h-px bg-line" />
+      {/* Top hairline label — a small bot peeks up from behind the rule */}
+      <div className="px-6 md:px-10 max-w-content mx-auto pt-12">
+        <div className="relative flex items-center gap-4">
+          <PixelBot className="absolute bottom-1/2 left-1 pointer-events-none" />
+          <span className="flex-1 h-px bg-line" />
+          <span className="dot-matrix">[ END · OF · PAGE ]</span>
+          <span className="flex-1 h-px bg-line" />
+        </div>
       </div>
 
       {/* WRITE + ELSEWHERE */}

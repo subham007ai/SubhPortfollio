@@ -75,6 +75,19 @@ a { color: inherit; text-decoration: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* Pixel bot — eyes blink, antenna pulses. Pure CSS so there's no JS or
+   re-render cost; the global reduced-motion rule above disables both. */
+@keyframes bot-blink {
+  0%, 93%, 100% { opacity: 1; }
+  95%, 98%      { opacity: 0.12; }
+}
+@keyframes bot-antenna {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.42; }
+}
+.bot-eye     { animation: bot-blink 5.2s steps(1, end) infinite; }
+.bot-antenna { animation: bot-antenna 2.4s ease-in-out infinite; }
+
 /* Theme-aware image swap */
 :root:not([data-theme="light"]) .light-only { display: none !important; }
 :root[data-theme="light"] .dark-only { display: none !important; }
