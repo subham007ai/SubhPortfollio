@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { SmoothCursor } from "@/registry/magicui/smooth-cursor";
 import PageTransition from "@/components/PageTransition";
 import { themeInitScript } from "@/lib/theme";
+import { profile } from "@/content/profile";
 
 const body = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 const display = Inter_Tight({ subsets: ["latin"], variable: "--font-display", display: "swap", weight: ["600","700","800"] });
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     default: "Subham Sarangi — AI Engineering Student",
     template: "%s"
   },
-  description: "Second-year B.Tech CS-AIML at SOA. Python, ML, automation. Building real-world projects.",
+  description: profile.shortBio,
   openGraph: {
     title: "Subham Sarangi",
     description: "AI Engineering Student · Building real-world projects",
