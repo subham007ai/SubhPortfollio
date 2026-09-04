@@ -3,7 +3,7 @@ export type SkillGroup = { label: string; items: string[] };
 export const topSkills = [
   { name: "Web Engineering", meaning: "Next.js, React, TypeScript, Tailwind. Client sites that ship on time and load fast." },
   { name: "Computer Vision", meaning: "Transfer learning · model comparison · honest evaluation. Where 100% accuracy is a warning, not a win." },
-  { name: "Design Systems", meaning: "A bespoke palette, type stack and motion language per client — Konark chakra for OISFF, Cinzel gold for BWFPI." }
+  { name: "Design Systems", meaning: "A bespoke palette, type stack and motion language per project — Konark chakra for OISFF, tailored typography and aesthetic palettes." }
 ];
 
 export const fullStack: SkillGroup[] = [

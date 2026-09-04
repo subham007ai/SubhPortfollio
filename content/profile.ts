@@ -5,7 +5,7 @@ export const profile = {
   tagline: "Python · Machine Learning · Automation",
   location: "Odisha, India",
   availability: "Freelance & internships",
-  email: "subhamsadangi9@gmail.com",
+  email: "worksubhamsarangi@gmail.com",
   socials: {
     github: "https://github.com/subham007ai",
     linkedin: "https://www.linkedin.com/in/subham-sarangi007/",

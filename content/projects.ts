@@ -16,37 +16,31 @@ export type Project = {
   role?: string;      // e.g. "Full stack — design + build"
   timeline?: string;  // e.g. "2026 · In progress"
   status?: "live" | "in-progress" | "shipped";
+  metrics?: { highlight: string; detail: string };
 };
 
 export const projects: Project[] = [
   {
-    id: "blue-water-films",
-    title: "Blue Water Film Productions",
-    kind: "Web",
+    id: "minskey",
+    title: "Minskey — AI Skill Passport",
+    kind: "AI",
     year: "2026",
-    one: "Official web home of a social-impact cinema studio — deep-navy and gold, twelve deliberate sections, a flagship film called PRAHARI.",
-    problem:
-      "BWFPI came to us with the kind of brief that's exciting and terrifying at the same time — build the official web home of a social-impact cinema studio whose slate reads like it belongs on a Cannes wall: a flagship OTT global action-thriller called PRAHARI, three upcoming productions (Market, Medical Secrets, Common Man), a chairman, a director, real ambition. The site had to sell an idea. Investors, festival partners and eventual audiences would meet the studio here first — and studios don't get a second chance to feel small.",
-    approach:
-      "Twelve deliberate sections in a single cinematic scroll — hero, studio philosophy, six thematic pillars of impact films, the PRAHARI feature block, three upcoming productions, global vision, services, a manifesto, leadership, contact. Next.js 16 App Router with Turbopack, React 19, Tailwind 4. Held the brand book strict — deep navy #021633 base, ocean blue #0A3D7A, sky blue #4DA9E6 for CTAs, metallic gold #D4AF37 for accents. Cinzel Bold for headlines and film titles so the type carries the weight of a poster; Montserrat everywhere else so paragraphs actually read. Built a custom Reveal scroll-in component, Ken-Burns hero animation, a live scroll-progress indicator in the header, pulse-ring and shimmer accents on the gold. The PRAHARI section shows real numbers because the ambition is real — ₹110 Cr production, ₹60 Cr VFX, 2h 40m runtime — and hiding that behind vague copy would have undersold the film.",
-    outcome:
-      "A studio site that reads like it was made by the studio, not for it. Chairman's enquiry form is wired end-to-end, live at blue-water-films.vercel.app. Second real client build I've shipped in 2026 — and the one where I stopped thinking of myself as someone practicing web design and started thinking of myself as someone who ships it.",
-    stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "Lucide", "Custom scroll system"],
+    one: "An AI-driven verifiable career identity platform built for IdeaThon 2026 & SIH — multi-model anti-cheat verification, cryptographic certificate proofs, and dual-layer AI orchestration.",
+    problem: "",
+    approach: "",
+    outcome: "",
+    stack: ["Next.js 14", "Python", "FastAPI", "TypeScript", "LangGraph", "Supabase", "Tailwind CSS", "Framer Motion"],
     links: [
-      { label: "Live", href: "https://blue-water-films.vercel.app/" },
-      { label: "GitHub", href: "https://github.com/sreyanw/blue-water-films" }
+      { label: "Live", href: "https://credo2-gamma.vercel.app/" },
+      { label: "GitHub", href: "https://github.com/Credo-Organization/credo2" }
     ],
     featured: true,
-    client: "Blue Water Film Productions Intl. (BWFPI)",
-    role: "Full stack — design + build",
-    timeline: "2026 · Shipped",
+    cover: "/projects/minskey/cover.webp",
+    client: "IdeaThon 2026 · Smart India Hackathon (SIH)",
+    role: "Full-Stack & AI Engineering (Team of 6)",
+    timeline: "2026 · Hackathon Project",
     status: "live",
-    cover: "/projects/blue-water-films/site-hero.webp",
-    screenshots: [
-      { src: "/projects/blue-water-films/site-mid.webp", caption: "PRAHARI — flagship OTT action-thriller feature section with budget + runtime stats" },
-      { src: "/projects/blue-water-films/site-lower.webp", caption: "Services — 'From first idea to final frame' production-capabilities grid" },
-      { src: "/projects/blue-water-films/site-contact.webp", caption: "Contact — 'Bring us the story. We'll build the world.' enquiry flow" }
-    ]
+    metrics: { highlight: "IdeaThon 2026", detail: "3-Model Anti-Cheat AI" }
   },
   {
     id: "oisff",
@@ -69,8 +63,9 @@ export const projects: Project[] = [
     role: "Full stack — design + build",
     timeline: "2026 · Shipped · 6-week sprint",
     status: "live",
-    cover: "/projects/oisff/site-hero.webp",
+    cover: "/projects/oisff/cover.webp",
     screenshots: [
+      { src: "/projects/oisff/site-hero.webp", caption: "Live site · Hero section with countdown and festival branding" },
       { src: "/projects/oisff/site-about.webp", caption: "About · 'Not just a festival. A movement.' — mission grid" },
       { src: "/projects/oisff/site-mid.webp", caption: "Programs · community cinema, workshops, feature-film incubator, cultural preservation" },
       { src: "/projects/oisff/site-categories.webp", caption: "Submissions · 'Nomination Forms Launching Soon' + festival footer" }
@@ -93,8 +88,10 @@ export const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/subham007ai/Face-Mask-detection" }
     ],
     featured: true,
-    cover: "/projects/face-mask-detection/eda_sample_grid.webp",
+    cover: "/projects/face-mask-detection/cover.webp",
+    metrics: { highlight: "EfficientNetB0 · 100% AUC", detail: "30 FPS CPU Real-Time" },
     screenshots: [
+      { src: "/projects/face-mask-detection/eda_sample_grid.webp", caption: "Dataset distribution & EDA preprocessing grid" },
       { src: "/projects/face-mask-detection/radar_chart.webp", caption: "Model radar · three CNNs compared across five metrics" },
       { src: "/projects/face-mask-detection/roc_curve_comparison.webp", caption: "ROC curves · EfficientNetB0 sits at 1.000 AUC" },
       { src: "/projects/face-mask-detection/pr_curve_comparison.webp", caption: "Precision–Recall · all three models near-perfect" },
@@ -119,59 +116,11 @@ export const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/subham007ai/websiteagencydesign" }
     ],
     featured: true,
-    cover: "/projects/sitora/site-hero.webp",
+    cover: "/projects/sitora/cover.webp",
     screenshots: [
+      { src: "/projects/sitora/site-hero.webp", caption: "Live site — Aurora hero with kinetic text reveals" },
       { src: "/projects/sitora/site-pricing.webp", caption: "Pricing — INR/USD toggle + slider-driven cost calculator" },
       { src: "/projects/sitora/site-mid.webp", caption: "Selected work — 'Proof, not promises' case grid" }
-    ]
-  },
-  {
-    id: "kalinga-fitness",
-    title: "Kalinga Fitness Gym",
-    kind: "Web",
-    year: "2025",
-    one: "A neighbourhood gym near SUM Hospital — 100% static, zero backend, and every trial signup lands as a pre-filled WhatsApp message on the owner's phone.",
-    problem:
-      "A small neighbourhood gym near SUM Hospital in Bhubaneswar. The owner didn't want a monthly-hosting-fee CMS thing. He wanted a website that could get warm leads to his phone. That's the whole requirement — turn a stranger visiting the site into a WhatsApp conversation with him.",
-    approach:
-      "Next.js 16 with `output: \"export\"` — 100% static HTML, hosted for free. No backend, no database, no leads table to babysit. The trial signup form URL-encodes name + phone + fitness goal into a pre-filled WhatsApp message that opens the gym owner's chat directly on the tap. Warm lead in one click.\n\nBuilt a dedicated /visit page targeting local search — Google Maps embed, tap-to-call `tel:` link, email link, structured JSON-LD HealthClub schema, semantic HTML5 landmarks. Sitemap auto-generated via next-sitemap. Scroll animations use raw IntersectionObserver (zero React state, zero re-renders) and honour prefers-reduced-motion. Dark editorial theme — ink backgrounds (#0A0A0B, #101012, #17171A) with a single volt accent (#CCFF3E) reserved for CTAs and active UI. Anton for display type, Space Grotesk for headings, Inter for body — WCAG AA compliant contrast throughout. Interactive before/after transformation slider using a clip-path clip track driven by a range input. Google Reviews carousel with stateful React intervals, fade transitions, and manual dot navigation.",
-    outcome:
-      "Zero-cost hosting, real warm leads routing straight to the gym owner's phone. My first project where the business logic wasn't the code — it was the choice not to write code at all. Serverless in the truest sense.",
-    stack: ["Next.js 16", "Tailwind 4", "TypeScript", "next-sitemap", "IntersectionObserver"],
-    links: [
-      { label: "Live", href: "https://kalinga-fitness-gym-weld.vercel.app/" },
-      { label: "GitHub", href: "https://github.com/subham007ai/kalinga-fitness-gym" }
-    ],
-    cover: "/projects/kalinga-fitness/site-hero.webp",
-    screenshots: [
-      { src: "/projects/kalinga-fitness/site-mid.webp", caption: "Programs section — dark editorial layout, volt accent" },
-      { src: "/projects/kalinga-fitness/site-visit.webp", caption: "/visit — dedicated local-SEO page with map + tap-to-call" },
-      { src: "/projects/kalinga-fitness/member-before.webp", caption: "Before — one half of the drag-clip transformation slider" },
-      { src: "/projects/kalinga-fitness/member-after.webp", caption: "After — the slider's payoff" }
-    ]
-  },
-  {
-    id: "utkal-dental",
-    title: "Utkal Dental Care",
-    kind: "Web",
-    year: "2025",
-    one: "A concept redesign for a Bhubaneswar dental, skin, and hair clinic — warm cream, near-black ink, one vermilion accent, and a first-visit timeline that reads like a hand-hold.",
-    problem:
-      "Most dental clinic websites swing to one of two extremes — sterile and cold like a hospital, or oversold and cheerful like a spa. I wanted to try a concept redesign that could sit exactly in the middle. Warm, but clinical. Professional, but not intimidating. A patient facing the site should feel taken care of — not sold to.",
-    approach:
-      "Built the Atelier design system from scratch — cream backgrounds (#F3F0E9) with warm ink type (#15130F), soft paper surfaces (#FBF9F3) for cards, and a single vibrant vermilion accent (#E4572E) reserved for CTAs and step badges. Soft-shadow component widgets for treatment cards. Next.js 14 App Router with Tailwind and Tabler Icons.\n\nStats dashboard widgets with hover translations. A visit timeline that goes vertical on mobile and horizontal on desktop, walking a patient through what a first appointment actually feels like — check-in, consultation, diagnosis, treatment plan. Drag-enabled before/after slider for showcasing dental, skin, and hair treatment transformations. Scroll-reveal micro-interactions on every section. A unified sticky header and structured footer with contact details, business hours, and every internal route. Pixel-perfect across 375, 768, and 1240+.",
-    outcome:
-      "A calm, professional clinic site that still has visual personality. This one taught me that restraint is a design decision — every time I wanted to add another accent color or another shadow, cutting it made the page better.",
-    stack: ["Next.js 14", "Tailwind", "Tabler Icons", "TypeScript"],
-    links: [
-      { label: "Live", href: "https://dental-website-design-2.vercel.app/" },
-      { label: "GitHub", href: "https://github.com/subham007ai/dental-website-design-2" }
-    ],
-    cover: "/projects/utkal-dental/site-hero.webp",
-    screenshots: [
-      { src: "/projects/utkal-dental/site-mid.webp", caption: "Services — editorial grid over the Atelier cream system" },
-      { src: "/projects/utkal-dental/hero_family.webp", caption: "Patient-first imagery used across the site" },
-      { src: "/projects/utkal-dental/dr_sahu.webp", caption: "Founder portrait — Dr. Sahu" }
     ]
   }
 ];
