@@ -1,62 +1,28 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { charItem, charStagger, ease } from "@/lib/motion";
 import { profile } from "@/content/profile";
-
-const FIRST = "Subham";
-const LAST = "Sarangi";
+import HeroAvatar from "./HeroAvatar";
 
 export default function Hero() {
   return (
-    <section className="relative pt-20 md:pt-32 pb-12 md:pb-16 dot-grid">
-      <div className="mx-auto max-w-content px-6 md:px-10">
-        <motion.div
-          className="dot-matrix flex items-center gap-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          <span className="w-2 h-2 rounded-full" style={{ background: "var(--signal)" }} />
-          <span>Available · {profile.availability} · {new Date().getFullYear()}</span>
+    <section className="mx-auto max-w-content px-6 md:px-10 pt-16 md:pt-24 pb-16 md:pb-24">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+        <motion.div className="lg:col-span-7" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
+          <p className="dot-matrix mb-5">Bhubaneswar, India · Available for select work</p>
+          <h1 className="font-display font-normal text-6xl sm:text-7xl md:text-8xl tracking-tight leading-[0.95] text-fgWarm"><span className="italic font-light">Hi,</span> I&apos;m {profile.name.split(" ")[0]}.</h1>
+          <p className="mt-5 max-w-xl text-xl md:text-2xl leading-snug text-fg/90 font-light">I design and build thoughtful web products and applied AI systems.</p>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted font-normal">Recent work includes Minskey (an AI-driven verifiable skill passport for IdeaThon 2026), the Odisha International Short Film Festival platform, and computer-vision engineering.</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="#selected-work" className="editorial-button editorial-button--primary">View selected work</Link>
+            <Link href="/contact" className="editorial-button">Start a conversation</Link>
+          </div>
         </motion.div>
-
-        <motion.h1
-          variants={charStagger}
-          initial="hidden"
-          animate="visible"
-          aria-label="Subham Sarangi"
-          className="mt-6 font-display tracking-tightest leading-[0.85] text-[14vw] md:text-[10vw] lg:text-[9vw] font-extrabold"
-        >
-          <span aria-hidden="true" className="block overflow-hidden">
-            <Word word={FIRST} />
-          </span>
-          <span aria-hidden="true" className="block overflow-hidden text-fg/70">
-            <Word word={LAST} />
-          </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease, delay: 0.6 }}
-          className="mt-10 text-fg text-xl md:text-2xl leading-snug max-w-xl"
-        >
-          AI engineering student at SOA. Shipping Python, ML and web in public — because your life won&rsquo;t change until you become the priority.
-        </motion.p>
+        <motion.div className="lg:col-span-5 flex justify-center lg:justify-end" initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}>
+          <HeroAvatar imageSrc="/avatar.png" alt={profile.name} />
+        </motion.div>
       </div>
     </section>
-  );
-}
-
-function Word({ word }: { word: string }) {
-  return (
-    <span className="inline-block">
-      {word.split("").map((c, i) => (
-        <motion.span key={i} variants={charItem} className="inline-block">
-          {c}
-        </motion.span>
-      ))}
-    </span>
   );
 }
