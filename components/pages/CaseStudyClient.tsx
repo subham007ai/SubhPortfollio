@@ -36,7 +36,7 @@ export default function CaseStudyClient({ project: p, next }: { project: Project
         </h1>
         {p.cover && (
           <div
-            className="rounded-2xl overflow-hidden border hairline border-line bg-card p-2 sm:p-3 isolate"
+            className="rounded-2xl overflow-hidden border hairline border-line bg-card p-2 sm:p-3 card-elevation isolate"
             style={{ borderRadius: "16px" }}
           >
             <div

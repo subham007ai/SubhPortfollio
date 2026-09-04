@@ -19,7 +19,7 @@ export default function FeaturedWork() {
           <article key={project.id} className="group">
             <Link
               href={`/work/${project.id}`}
-              className="block rounded-2xl overflow-hidden bg-card border hairline border-line p-2 sm:p-2.5 transition-all duration-300 group-hover:border-lineStrong isolate"
+              className="block rounded-2xl overflow-hidden bg-card border hairline border-line p-2 sm:p-2.5 card-elevation group-hover:border-lineStrong isolate"
               style={{ borderRadius: "16px" }}
             >
               <div

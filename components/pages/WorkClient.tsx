@@ -59,7 +59,7 @@ function ProjectCard({ project: p, index }: { project: Project; index: number })
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease, delay: index * 0.06 }}
-      className={p.cover ? "border hairline border-line overflow-hidden bg-bg rounded-2xl" : "border-t hairline border-t-line pt-5"}
+      className={p.cover ? "border hairline border-line overflow-hidden bg-card rounded-2xl card-elevation" : "border-t hairline border-t-line pt-5"}
       style={p.cover ? { borderRadius: "16px", overflow: "hidden" } : undefined}
     >
       {p.cover && (
