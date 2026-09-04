@@ -9,8 +9,6 @@ Set `cover: "/projects/<id>.jpg"` on the project in `content/projects.ts`.
 Suggested filenames:
 - `face-mask-detection.jpg`
 - `sitora.jpg`
-- `kalinga-fitness.jpg`
-- `utkal-dental.jpg`
 
 ## Screenshots (expanded view, opens in lightbox)
 
