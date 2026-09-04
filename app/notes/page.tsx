@@ -20,9 +20,9 @@ export default function NotesPage() {
       {notes.length === 0 ? (
         <div className="border hairline border-line rounded-2xl p-12 md:p-20 text-center">
           <div className="font-display text-[18vw] md:text-[10vw] leading-none text-fg/15 select-none">—</div>
-          <div className="dot-matrix mt-6">First note coming soon</div>
+          <div className="dot-matrix mt-6">In progress</div>
           <p className="text-muted mt-2 max-w-md mx-auto">
-            Currently in deep learning · writing comes after the Image Classifier ships.
+            The first note is being prepared alongside current deep-learning work. It will appear here when it is ready to publish.
           </p>
         </div>
       ) : (

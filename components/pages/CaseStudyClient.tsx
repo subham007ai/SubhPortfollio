@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import type { Project } from "@/content/projects";
 import { scrollReveal } from "@/lib/motion";
 import Lightbox, { type LightboxPhoto } from "@/components/Lightbox";
-import MeshCover from "@/components/MeshCover";
 
 export default function CaseStudyClient({ project: p, next }: { project: Project; next: Project }) {
   const [box, setBox] = useState<LightboxPhoto | null>(null);
@@ -35,20 +34,26 @@ export default function CaseStudyClient({ project: p, next }: { project: Project
         <h1 className="font-display tracking-tightest text-4xl md:text-7xl leading-[0.95] mb-8">
           {p.title}
         </h1>
-        <div className="relative aspect-[21/9] rounded-2xl overflow-hidden border hairline border-line bg-line/40">
-          {p.cover ? (
-            <Image
-              src={p.cover}
-              alt={p.title}
-              fill
-              sizes="(min-width: 768px) 1200px, 100vw"
-              priority
-              className="object-cover"
-            />
-          ) : (
-            <MeshCover seed={p.id} className="absolute inset-0 w-full h-full" />
-          )}
-        </div>
+        {p.cover && (
+          <div
+            className="rounded-2xl overflow-hidden border hairline border-line bg-card p-2 sm:p-3 isolate"
+            style={{ borderRadius: "16px" }}
+          >
+            <div
+              className="relative aspect-[3/2] w-full rounded-xl overflow-hidden bg-bg/40 isolate"
+              style={{ borderRadius: "10px", overflow: "hidden" }}
+            >
+              <Image
+                src={p.cover}
+                alt={p.title}
+                fill
+                sizes="(min-width: 768px) 1200px, 100vw"
+                priority
+                className="object-contain"
+              />
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Meta strip */}
@@ -95,6 +100,24 @@ export default function CaseStudyClient({ project: p, next }: { project: Project
           {p.one}
         </p>
       </motion.section>
+
+      {/* Case Study Pending Notice */}
+      {!p.problem && !p.approach && !p.outcome && (
+        <motion.section
+          variants={scrollReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mx-auto max-w-content px-6 md:px-10 pt-12"
+        >
+          <div className="p-6 rounded-2xl border hairline border-line bg-card/60 max-w-3xl">
+            <div className="dot-matrix mb-2 text-muted">Case Study · Coming Soon</div>
+            <p className="text-fg/80 text-base leading-relaxed">
+              Detailed technical breakdown and architecture deep-dive are currently in preparation. In the meantime, explore the live deployment and source repository via the links below.
+            </p>
+          </div>
+        </motion.section>
+      )}
 
       {/* Problem */}
       <Section label="Problem" body={p.problem} />
@@ -207,7 +230,8 @@ export default function CaseStudyClient({ project: p, next }: { project: Project
   );
 }
 
-function Section({ label, body }: { label: string; body: string }) {
+function Section({ label, body }: { label: string; body?: string }) {
+  if (!body || !body.trim()) return null;
   return (
     <motion.section
       variants={scrollReveal}
