@@ -3,46 +3,72 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0a0a0a;
-  --fg: #f5f5f5;
-  --muted: #6b6b6b;
-  --line: #1a1a1a;
-  --signal: #ff3b30;
-  --grid-dot: rgba(255,255,255,0.06);
+  --bg: #000000;
+  --bg-card: #10100f;
+  --bg-pill: #171715;
+  --fg: #f4f4f5;
+  --fg-warm: #f5eee4;
+  --muted: #a5a29c;
+  --line: #292824;
+  --line-strong: #424039;
+  --signal: #22c55e;
+  --gold: #c7a561;
+  --accent: #c7a561;
+  --grid-dot: rgba(255,255,255,0.035);
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-body: var(--font-geist-sans), Inter, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
   color-scheme: dark;
 }
 :root[data-theme="light"] {
-  --bg: #f5f3ee;
-  --fg: #0a0a0a;
-  --muted: #595959;
-  --line: #e2dfd6;
-  --signal: #d63327;
-  --grid-dot: rgba(0,0,0,0.07);
+  --bg: #f9f8f5;
+  --bg-card: #ffffff;
+  --bg-pill: #f1ede4;
+  --fg: #111111;
+  --fg-warm: #1a1917;
+  --muted: #666666;
+  --line: #e5e2d9;
+  --line-strong: #d1cdc0;
+  --signal: #16a34a;
+  --gold: #997522;
+  --accent: #997522;
+  --grid-dot: rgba(0,0,0,0.04);
   color-scheme: light;
 }
-html, body { transition: background-color 0.5s ease, color 0.5s ease; }
+html, body { transition: background-color 0.4s ease, color 0.4s ease; }
 
 html, body { background: var(--bg); color: var(--fg); }
 body {
-  font-family: var(--font-body), "Inter", system-ui, sans-serif;
+  font-family: var(--font-geist-sans), "Inter", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-::selection { background: var(--fg); color: var(--bg); }
+::selection { background: #d4af37; color: #000000; }
 
 :focus-visible {
   outline: 1px solid var(--fg);
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 a { color: inherit; text-decoration: none; }
 
+.section-heading {
+  font-family: 'Instrument Serif', var(--font-serif), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--fg-warm);
+  display: inline-block;
+  position: relative;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
 /* dot-matrix utility — used for labels, timestamps, status lines */
 .dot-matrix {
-  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+  font-family: var(--font-geist-mono), "JetBrains Mono", ui-monospace, monospace;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-feature-settings: "tnum";
@@ -51,6 +77,32 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hairline { border-color: var(--line); }
+
+.editorial-link {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--fg) 35%, transparent);
+  text-underline-offset: 0.24em;
+  transition: text-decoration-color 180ms ease;
+}
+.editorial-link:hover { text-decoration-color: var(--accent); }
+
+.editorial-button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  font-family: var(--font-geist-mono), "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+.editorial-button:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.editorial-button--primary { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.editorial-button--primary:hover { background: var(--accent); border-color: var(--accent); }
 
 /* tiny scrollbar */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
@@ -95,8 +147,3 @@ a { color: inherit; text-decoration: none; }
 /* Cursor */
 .cursor-dot { transition: width 200ms ease, height 200ms ease, transform 80ms linear; }
 @media (hover: none) { .cursor-dot { display: none !important; } }
-
-/* Hide native cursor on desktop with fine pointer so it doesn't conflict with custom cursor */
-@media (hover: hover) and (pointer: fine) {
-  * { cursor: none !important; }
-}
