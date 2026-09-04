@@ -6,15 +6,22 @@ const config: Config = {
     extend: {
       colors: {
         bg: "var(--bg)",
+        card: "var(--bg-card)",
+        pill: "var(--bg-pill)",
         fg: "var(--fg)",
+        fgWarm: "var(--fg-warm)",
         muted: "var(--muted)",
         line: "var(--line)",
-        signal: "var(--signal)"
+        lineStrong: "var(--line-strong)",
+        signal: "var(--signal)",
+        gold: "var(--gold)"
       },
       fontFamily: {
-        display: ["var(--font-display)", "Inter Tight", "sans-serif"],
-        body: ["var(--font-body)", "Inter", "sans-serif"],
-        mono: ["var(--font-mono)", "JetBrains Mono", "monospace"]
+        serif: ["'Instrument Serif'", "var(--font-serif)", "Georgia", "serif"],
+        display: ["'Instrument Serif'", "var(--font-serif)", "Georgia", "serif"],
+        body: ["var(--font-geist-sans)", "Inter", "sans-serif"],
+        sans: ["var(--font-geist-sans)", "Inter", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "JetBrains Mono", "monospace"]
       },
       letterSpacing: {
         tightest: "-0.04em",

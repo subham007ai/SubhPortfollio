@@ -6,3 +6,7 @@ next-env.d.ts
 .DS_Store
 .vscode/
 tsconfig.tsbuildinfo
+
+# Scratch & raw source inputs
+memory/
+picture/
