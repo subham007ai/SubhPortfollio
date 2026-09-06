@@ -19,9 +19,9 @@ export default function WorkClient() {
 
   return (
     <div className="mx-auto max-w-content px-6 md:px-10 pt-16 md:pt-24 pb-24">
-      <div className="dot-matrix mb-4">Index · 002</div>
+      <div className="dot-matrix mb-4">Portfolio</div>
       <h1 className="font-display font-normal tracking-tight text-5xl md:text-7xl leading-[0.9] mb-10">
-        Projects
+        All Projects
       </h1>
 
       <div className="flex flex-wrap gap-2 mb-10">

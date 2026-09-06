@@ -1,9 +1,9 @@
 export type SkillGroup = { label: string; items: string[] };
 
 export const topSkills = [
-  { name: "Web Engineering", meaning: "Next.js, React, TypeScript, Tailwind. Client sites that ship on time and load fast." },
-  { name: "Computer Vision", meaning: "Transfer learning · model comparison · honest evaluation. Where 100% accuracy is a warning, not a win." },
-  { name: "Design Systems", meaning: "A bespoke palette, type stack and motion language per project — Konark chakra for OISFF, tailored typography and aesthetic palettes." }
+  { name: "Web Development", meaning: "Full-stack web applications with Next.js, React, TypeScript, and Tailwind CSS. Responsive, fast, and structured cleanly." },
+  { name: "Computer Vision & ML", meaning: "Image preprocessing pipelines, CNN transfer learning (EfficientNet, MobileNet), and real-time model deployment." },
+  { name: "Interface Design", meaning: "Custom UI components, fluid micro-interactions with Framer Motion, and consistent design systems without templates." }
 ];
 
 export const fullStack: SkillGroup[] = [

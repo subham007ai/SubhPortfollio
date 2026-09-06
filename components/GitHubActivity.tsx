@@ -179,7 +179,7 @@ export default function GitHubActivity() {
             <span>Activity · @{USERNAME}</span>
           </div>
           <h2 className="font-display font-normal text-3xl md:text-5xl tracking-tight leading-none">
-            Proof of work.
+            GitHub Activity
           </h2>
         </div>
 

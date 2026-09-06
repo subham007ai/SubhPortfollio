@@ -1,8 +1,8 @@
 export const profile = {
   name: "Subham Sarangi",
   handle: "subham007ai",
-  role: "AI Engineering Student",
-  tagline: "Python · Machine Learning · Automation",
+  role: "AI Engineering Student & Web Developer",
+  tagline: "Python · Machine Learning · Full-Stack Web",
   location: "Odisha, India",
   availability: "Freelance & internships",
   email: "worksubhamsarangi@gmail.com",
@@ -13,12 +13,12 @@ export const profile = {
     instagram: ""
   },
   shortBio:
-    "B.Tech CS-AIML · 2024–2028 · SOA University. Building real-world projects in machine learning, computer vision and web — learning by shipping.",
+    "B.Tech CS-AIML (2024–2028) at SOA University, Bhubaneswar. Building practical projects in machine learning, computer vision, and modern web applications.",
   longBio: [
-    "I'm Subham — a B.Tech Computer Science student specialising in Artificial Intelligence and Machine Learning at Siksha 'O' Anusandhan University, Bhubaneswar (2024–2028).",
-    "Right now I'm working through a structured AI/ML engineering path — Python and the data stack first, then classical ML, deep learning, and finally LLM apps and agents.",
-    "I freelance on the side — mostly premium web design work where I push Next.js, Tailwind and Framer Motion as far as they'll go. Web is the interface for everything I'll build in ML.",
-    "Open to collaborations, internships and conversations with people who care about building things that work in the real world."
+    "I'm Subham — a 2nd-year B.Tech Computer Science student specializing in Artificial Intelligence and Machine Learning at Siksha 'O' Anusandhan University, Bhubaneswar (2024–2028).",
+    "I focus on practical machine learning and computer vision—working with data preprocessing, CNN architectures, and model deployment, while building clean web apps in Next.js and FastAPI.",
+    "Alongside college coursework, I freelance on web development projects and build hackathon applications like Minskey (verifiable career identity platform with anti-cheat AI).",
+    "Always open to internships, collaborations, and conversations about building useful software that actually works."
   ],
-  creed: "Your life won't change until you become the priority."
+  creed: "Consistency over intensity."
 };

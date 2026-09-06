@@ -9,8 +9,8 @@ export default function FeaturedWork() {
     <section id="selected-work" className="mx-auto max-w-content px-6 md:px-10 pt-6 md:pt-8 pb-16 md:pb-24">
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-6 md:mb-8">
         <div>
-          <p className="dot-matrix mb-3">Selected work · 03</p>
-          <h2 className="font-display font-normal text-4xl md:text-5xl tracking-tight leading-none">Top projects.</h2>
+          <p className="dot-matrix mb-2">Projects</p>
+          <h2 className="font-display font-normal text-4xl md:text-5xl tracking-tight leading-none">Featured Work</h2>
         </div>
         <Link href="/work" className="editorial-link text-sm">Browse all projects →</Link>
       </div>
@@ -45,7 +45,7 @@ export default function FeaturedWork() {
         ))}
       </div>
       <div className="mt-16 border-t hairline border-t-line pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-        <p className="font-display font-normal text-2xl md:text-3xl tracking-tight">Have a project in mind?</p>
+        <p className="font-display font-normal text-2xl md:text-3xl tracking-tight">Looking for a developer or collaborator?</p>
         <Link href="/contact" className="editorial-button">Start a conversation</Link>
       </div>
     </section>

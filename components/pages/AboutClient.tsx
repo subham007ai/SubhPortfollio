@@ -7,20 +7,18 @@ import { now } from "@/content/now";
 import { topSkills, languages } from "@/content/skills";
 import { scrollReveal, ease } from "@/lib/motion";
 import SkillsGrid from "@/components/SkillsGrid";
-import CreedBlock from "@/components/CreedBlock";
 
 export default function AboutClient() {
   return (
-    <div className="mx-auto max-w-content px-6 md:px-10 pt-16 md:pt-24 pb-12">
-      <div className="dot-matrix mb-4">Index · 001 · About</div>
+    <div className="mx-auto max-w-content px-6 md:px-10 pt-16 md:pt-24 pb-16">
+      <div className="dot-matrix mb-4">About</div>
       <h1 className="font-display tracking-tightest text-5xl md:text-7xl leading-[0.9] mb-10">
-        Quiet builder,<br /><span className="text-fg/60">sharp ambition.</span>
+        About me.<br /><span className="text-fg/60">Building, learning, and shipping.</span>
       </h1>
 
       {/* Long bio */}
-      <section className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-32">
+      <section className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-24">
         <div className="md:col-span-3">
-          <div className="dot-matrix mb-6">01 · Identity</div>
           <motion.div
             variants={scrollReveal}
             initial="hidden"
@@ -46,7 +44,7 @@ export default function AboutClient() {
             />
           </motion.div>
         </div>
-        <div className="md:col-span-9 space-y-6 max-w-2xl">
+        <div className="md:col-span-9 space-y-5 max-w-2xl">
           {profile.longBio.map((p, i) => (
             <motion.p
               key={i}
@@ -55,7 +53,7 @@ export default function AboutClient() {
               whileInView="visible"
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: i * 0.06 }}
-              className={i === 0 ? "text-2xl md:text-3xl text-fg leading-snug font-display tracking-tight" : "text-fg/90 text-lg leading-relaxed"}
+              className={i === 0 ? "text-2xl md:text-3xl text-fg leading-snug font-display tracking-tight" : "text-fg/90 text-base md:text-lg leading-relaxed"}
             >
               {p}
             </motion.p>
@@ -64,8 +62,8 @@ export default function AboutClient() {
       </section>
 
       {/* Top skills strip */}
-      <section className="mb-32">
-        <div className="dot-matrix mb-8">02 · Top skills</div>
+      <section className="mb-24">
+        <div className="dot-matrix mb-6">Key Focus Areas</div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-line border hairline border-line rounded-2xl overflow-hidden">
           {topSkills.map((s, i) => (
             <motion.div
@@ -78,24 +76,22 @@ export default function AboutClient() {
             >
               <div className="dot-matrix mb-3" style={{ color: "var(--signal)" }}>0{i + 1}</div>
               <div className="font-display text-2xl md:text-3xl tracking-tight leading-tight mb-3">{s.name}</div>
-              <p className="text-muted leading-relaxed">{s.meaning}</p>
+              <p className="text-muted leading-relaxed text-sm md:text-base">{s.meaning}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* Full stack */}
-      <section className="mb-32">
-        <div className="dot-matrix mb-8">03 · The full stack</div>
+      <section className="mb-24">
+        <div className="dot-matrix mb-6">Technologies &amp; Tools</div>
         <SkillsGrid />
       </section>
-
-      <CreedBlock />
 
       {/* Languages + Now */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
         <div className="border hairline border-line rounded-2xl p-6 md:p-8">
-          <div className="dot-matrix mb-6">04 · Languages</div>
+          <div className="dot-matrix mb-6">Spoken Languages</div>
           <ul className="space-y-4">
             {languages.map(l => (
               <li key={l.name} className="flex items-baseline justify-between border-b hairline border-b-line pb-3">
@@ -106,10 +102,10 @@ export default function AboutClient() {
           </ul>
         </div>
         <div className="border hairline border-line rounded-2xl p-6 md:p-8">
-          <div className="dot-matrix mb-6">05 · Working on</div>
+          <div className="dot-matrix mb-6">Currently Working On</div>
           <ul className="space-y-4">
             {now.workingOn.map((item, i) => (
-              <li key={i} className="border-b hairline border-b-line pb-3 text-fg/90 leading-relaxed">
+              <li key={i} className="border-b hairline border-b-line pb-3 text-fg/90 leading-relaxed text-sm md:text-base">
                 {item}
               </li>
             ))}
