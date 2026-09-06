@@ -8,19 +8,19 @@ import { scrollReveal } from "@/lib/motion";
 
 export default function JourneyClient() {
   return (
-    <div className="mx-auto max-w-content px-6 md:px-10 pt-16 md:pt-24 pb-24">
-      <div className="dot-matrix mb-4">Journey</div>
-      <h1 className="font-display tracking-tightest text-5xl md:text-7xl leading-[0.9] mb-4">
+    <div className="mx-auto max-w-content px-4 sm:px-6 md:px-10 pt-10 sm:pt-16 md:pt-24 pb-20 sm:pb-24">
+      <div className="dot-matrix mb-3 sm:mb-4">Journey</div>
+      <h1 className="font-display tracking-tightest text-4xl sm:text-5xl md:text-7xl leading-[0.9] mb-3 sm:mb-4">
         Education &amp; Milestones.<br /><span className="text-fg/60">Where I studied and what I built.</span>
       </h1>
-      <p className="text-muted max-w-xl mb-16">
+      <p className="text-muted max-w-xl mb-12 sm:mb-16 text-sm sm:text-base leading-relaxed">
         A timeline of my schooling, university coursework, hackathon competitions, and milestone projects.
       </p>
 
       {/* Timeline */}
-      <section className="mb-24">
+      <section className="mb-20 sm:mb-24">
         <div className="dot-matrix mb-6">Education Timeline</div>
-        <ol className="relative pl-8 border-l hairline border-l-line space-y-12">
+        <ol className="relative pl-6 sm:pl-8 border-l hairline border-l-line space-y-10 sm:space-y-12">
           {journey.map((stop, i) => (
             <motion.li
               key={stop.id}
@@ -31,7 +31,7 @@ export default function JourneyClient() {
               transition={{ delay: i * 0.05 }}
               className="relative"
             >
-              <span className="absolute -left-[37px] top-1.5 w-3 h-3 rounded-full bg-fg border-4 border-bg" />
+              <span className="absolute -left-[31px] sm:-left-[37px] top-1.5 w-3 h-3 rounded-full bg-fg border-4 border-bg" />
               <div className="dot-matrix mb-2">{stop.year}</div>
               <h3 className="font-display text-2xl md:text-3xl tracking-tight mb-1">{stop.school}</h3>
               <p className="text-fg/90">{stop.detail}</p>

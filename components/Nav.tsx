@@ -73,8 +73,8 @@ export default function Nav() {
         transition={{ duration: 0.35, ease: "easeInOut" }}
         className="sticky top-0 z-40 backdrop-blur-md bg-bg/70 border-b hairline border-b-line"
       >
-        <div className="mx-auto max-w-content px-5 md:px-10 h-14 flex items-center justify-between gap-3">
-          <Link href="/" className="flex items-center gap-2.5 shrink-0">
+        <div className="mx-auto max-w-content px-4 sm:px-6 md:px-10 h-14 flex items-center justify-between gap-3">
+          <Link href="/" className="flex items-center gap-2.5 shrink-0 py-1">
             <motion.span
               className="block w-2 h-2 rounded-full bg-fg"
               animate={{ scale: [1, 1.4, 1] }}
@@ -113,7 +113,7 @@ export default function Nav() {
             <button
               onClick={() => setOpen(true)}
               aria-label="Open menu"
-              className="md:hidden flex items-center gap-2 dot-matrix border hairline border-line rounded-full px-2.5 py-1.5"
+              className="md:hidden flex items-center gap-2 dot-matrix border hairline border-line rounded-full px-3 py-1.5 min-h-[38px] active:scale-95 transition-transform select-none"
               style={{ color: "var(--fg)" }}
             >
               <span className="flex flex-col gap-[3px]">
@@ -150,7 +150,7 @@ export default function Nav() {
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Top bar */}
-                <div className="h-14 px-5 flex items-center justify-between border-b hairline border-b-line">
+                <div className="h-14 px-4 sm:px-6 flex items-center justify-between border-b hairline border-b-line">
                   <span className="flex items-center gap-2.5 dot-matrix" style={{ color: "var(--fg)" }}>
                     <span className="block w-2 h-2 rounded-full bg-fg" />
                     SS
@@ -158,7 +158,7 @@ export default function Nav() {
                   <button
                     onClick={() => setOpen(false)}
                     aria-label="Close menu"
-                    className="dot-matrix border hairline border-line rounded-full px-3 py-1.5 flex items-center gap-2"
+                    className="dot-matrix border hairline border-line rounded-full px-3.5 py-1.5 min-h-[38px] flex items-center gap-2 active:scale-95 transition-transform"
                     style={{ color: "var(--fg)" }}
                   >
                     <span className="text-base leading-none">×</span>
@@ -181,7 +181,7 @@ export default function Nav() {
                           <Link
                             href={r.href}
                             onClick={() => setOpen(false)}
-                            className="group flex items-center gap-4 rounded-full pl-4 pr-3 py-3.5 transition-colors"
+                            className="group flex items-center gap-4 rounded-full pl-4 pr-3 py-3.5 active:scale-[0.98] transition-all"
                             style={{
                               background: active ? "var(--fg)" : "transparent",
                               color: active ? "var(--bg)" : "var(--fg)"
@@ -261,7 +261,7 @@ function CtaRow({
         onClick={onTap}
         target={external && href.startsWith("http") ? "_blank" : undefined}
         rel={external && href.startsWith("http") ? "noreferrer" : undefined}
-        className="group flex items-center gap-4 rounded-2xl px-4 py-3 border hairline border-line"
+        className="group flex items-center gap-4 rounded-2xl px-4 py-3 border hairline border-line active:scale-[0.98] transition-all"
         style={{ color: "var(--fg)" }}
       >
         <span style={{ color: signal ? "var(--signal)" : "var(--fg)" }} className="shrink-0">

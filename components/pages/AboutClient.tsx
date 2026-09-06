@@ -10,9 +10,9 @@ import SkillsGrid from "@/components/SkillsGrid";
 
 export default function AboutClient() {
   return (
-    <div className="mx-auto max-w-content px-6 md:px-10 pt-16 md:pt-24 pb-16">
-      <div className="dot-matrix mb-4">About</div>
-      <h1 className="font-display tracking-tightest text-5xl md:text-7xl leading-[0.9] mb-10">
+    <div className="mx-auto max-w-content px-4 sm:px-6 md:px-10 pt-10 sm:pt-16 md:pt-24 pb-16">
+      <div className="dot-matrix mb-3 sm:mb-4">About</div>
+      <h1 className="font-display tracking-tightest text-4xl sm:text-5xl md:text-7xl leading-[0.9] mb-8 sm:mb-10">
         About me.<br /><span className="text-fg/60">Building, learning, and shipping.</span>
       </h1>
 

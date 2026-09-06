@@ -7,7 +7,7 @@ import HeroAvatar from "./HeroAvatar";
 
 export default function Hero() {
   return (
-    <section className="mx-auto max-w-content px-6 md:px-10 pt-10 md:pt-14 pb-4 md:pb-6">
+    <section className="mx-auto max-w-content px-4 sm:px-6 md:px-10 pt-8 sm:pt-10 md:pt-14 pb-4 md:pb-6">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
         <motion.div
           className="lg:col-span-7 space-y-3.5"

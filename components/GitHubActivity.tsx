@@ -157,7 +157,7 @@ export default function GitHubActivity() {
   };
 
   return (
-    <section className="mx-auto max-w-content px-6 md:px-10 py-16 md:py-24">
+    <section className="mx-auto max-w-content px-4 sm:px-6 md:px-10 py-12 sm:py-16 md:py-24">
       {/* Glow Filter */}
       <svg width="0" height="0" className="absolute invisible" aria-hidden="true">
         <defs>
@@ -172,13 +172,13 @@ export default function GitHubActivity() {
       </svg>
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-5 mb-6 sm:mb-8">
         <div>
-          <div className="dot-matrix mb-3 flex items-center gap-2">
+          <div className="dot-matrix mb-2.5 sm:mb-3 flex items-center gap-2">
             <span className="inline-block w-2 h-2 rounded-full bg-signal shadow-[0_0_8px_var(--signal)] animate-pulse" />
             <span>Activity · @{USERNAME}</span>
           </div>
-          <h2 className="font-display font-normal text-3xl md:text-5xl tracking-tight leading-none">
+          <h2 className="font-display font-normal text-3xl sm:text-4xl md:text-5xl tracking-tight leading-none">
             GitHub Activity
           </h2>
         </div>
@@ -188,7 +188,7 @@ export default function GitHubActivity() {
           <div className="flex items-center p-1 rounded-full border hairline border-line bg-card/80">
             <button
               onClick={() => setRange("6m")}
-              className="dot-matrix text-xs px-3 py-1.5 rounded-full transition-all duration-200"
+              className="dot-matrix text-xs px-3.5 py-1.5 rounded-full transition-all duration-200 min-h-[36px] flex items-center justify-center select-none active:scale-95"
               style={{
                 background: range === "6m" ? "var(--fg)" : "transparent",
                 color: range === "6m" ? "var(--bg)" : "var(--muted)",
@@ -199,7 +199,7 @@ export default function GitHubActivity() {
             </button>
             <button
               onClick={() => setRange("1y")}
-              className="dot-matrix text-xs px-3 py-1.5 rounded-full transition-all duration-200"
+              className="dot-matrix text-xs px-3.5 py-1.5 rounded-full transition-all duration-200 min-h-[36px] flex items-center justify-center select-none active:scale-95"
               style={{
                 background: range === "1y" ? "var(--fg)" : "transparent",
                 color: range === "1y" ? "var(--bg)" : "var(--muted)",
@@ -214,7 +214,7 @@ export default function GitHubActivity() {
             href={profile.socials.github}
             target="_blank"
             rel="noreferrer"
-            className="editorial-link text-sm hidden sm:inline-flex items-center gap-1"
+            className="editorial-link text-sm hidden sm:inline-flex items-center gap-1 py-1"
           >
             GitHub ↗
           </a>
@@ -222,48 +222,53 @@ export default function GitHubActivity() {
       </div>
 
       {/* Metrics Strip */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mb-6">
-        <div className="p-4 rounded-xl bg-card border hairline border-line">
-          <div className="dot-matrix text-[11px] text-muted mb-1">Total Contributions</div>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 md:gap-4 mb-5 sm:mb-6">
+        <div className="p-3.5 sm:p-4 rounded-xl bg-card border hairline border-line">
+          <div className="dot-matrix text-[10px] sm:text-[11px] text-muted mb-1">Total Contributions</div>
           <div className="font-display font-normal text-2xl sm:text-3xl text-fgWarm">
             {loading ? "—" : metrics.total}
           </div>
-          <div className="text-[11px] text-muted/70 mt-1 font-mono">
+          <div className="text-[10px] sm:text-[11px] text-muted/70 mt-1 font-mono">
             {range === "6m" ? "Past 6 months" : "Past 365 days"}
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-card border hairline border-line">
-          <div className="dot-matrix text-[11px] text-muted mb-1">Current Streak</div>
+        <div className="p-3.5 sm:p-4 rounded-xl bg-card border hairline border-line">
+          <div className="dot-matrix text-[10px] sm:text-[11px] text-muted mb-1">Current Streak</div>
           <div className="font-display font-normal text-2xl sm:text-3xl text-fgWarm">
             {loading ? "—" : `${metrics.currentStreak} ${metrics.currentStreak === 1 ? "day" : "days"}`}
           </div>
-          <div className="text-[11px] text-muted/70 mt-1 font-mono">Consistent commits</div>
+          <div className="text-[10px] sm:text-[11px] text-muted/70 mt-1 font-mono">Consistent commits</div>
         </div>
 
-        <div className="p-4 rounded-xl bg-card border hairline border-line">
-          <div className="dot-matrix text-[11px] text-muted mb-1">Longest Streak</div>
+        <div className="p-3.5 sm:p-4 rounded-xl bg-card border hairline border-line">
+          <div className="dot-matrix text-[10px] sm:text-[11px] text-muted mb-1">Longest Streak</div>
           <div className="font-display font-normal text-2xl sm:text-3xl text-fgWarm">
             {loading ? "—" : `${metrics.longestStreak} days`}
           </div>
-          <div className="text-[11px] text-muted/70 mt-1 font-mono">Peak momentum</div>
+          <div className="text-[10px] sm:text-[11px] text-muted/70 mt-1 font-mono">Peak momentum</div>
         </div>
 
-        <div className="p-4 rounded-xl bg-card border hairline border-line">
-          <div className="dot-matrix text-[11px] text-muted mb-1">Most Active Day</div>
+        <div className="p-3.5 sm:p-4 rounded-xl bg-card border hairline border-line">
+          <div className="dot-matrix text-[10px] sm:text-[11px] text-muted mb-1">Most Active Day</div>
           <div className="font-display font-normal text-2xl sm:text-3xl text-fgWarm">
             {loading ? "—" : `${metrics.peakDay.count} commits`}
           </div>
-          <div className="text-[11px] text-muted/70 mt-1 font-mono">
+          <div className="text-[10px] sm:text-[11px] text-muted/70 mt-1 font-mono">
             {loading || !metrics.peakDay.date ? "—" : formatShortDate(metrics.peakDay.date)}
           </div>
         </div>
       </div>
 
+      {/* Mobile Swipe Hint */}
+      <div className="sm:hidden flex items-center justify-between dot-matrix text-[10px] text-muted/70 mb-2 px-1">
+        <span>← Swipe to explore full timeline →</span>
+      </div>
+
       {/* Heatmap Card with Floating Tooltip */}
       <div
         ref={containerRef}
-        className="relative border hairline border-line rounded-2xl p-5 md:p-6 bg-card/40 backdrop-blur-sm overflow-x-auto no-scrollbar transition-all duration-300"
+        className="relative border hairline border-line rounded-2xl p-4 sm:p-5 md:p-6 bg-card/40 backdrop-blur-sm overflow-x-auto no-scrollbar touch-pan-x overscroll-x-contain transition-all duration-300"
         onMouseLeave={() => setTooltip(null)}
       >
         {/* Floating Tooltip */}

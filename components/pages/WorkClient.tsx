@@ -18,13 +18,13 @@ export default function WorkClient() {
   );
 
   return (
-    <div className="mx-auto max-w-content px-6 md:px-10 pt-16 md:pt-24 pb-24">
-      <div className="dot-matrix mb-4">Portfolio</div>
-      <h1 className="font-display font-normal tracking-tight text-5xl md:text-7xl leading-[0.9] mb-10">
+    <div className="mx-auto max-w-content px-4 sm:px-6 md:px-10 pt-10 sm:pt-16 md:pt-24 pb-20 sm:pb-24">
+      <div className="dot-matrix mb-3 sm:mb-4">Portfolio</div>
+      <h1 className="font-display font-normal tracking-tight text-4xl sm:text-5xl md:text-7xl leading-[0.9] mb-8 sm:mb-10">
         All Projects
       </h1>
 
-      <div className="flex flex-wrap gap-2 mb-10">
+      <div className="flex flex-wrap gap-2 mb-8 sm:mb-10">
         {FILTERS.map(f => {
           const active = f === filter;
           return (
@@ -32,7 +32,7 @@ export default function WorkClient() {
               key={f}
               onClick={() => setFilter(f)}
               aria-pressed={active}
-              className="dot-matrix px-3 py-1.5 rounded-full border hairline border-line transition-colors"
+              className="dot-matrix px-3.5 py-1.5 min-h-[36px] flex items-center rounded-full border hairline border-line transition-all active:scale-95 select-none"
               style={{
                 color: active ? "var(--bg)" : "var(--muted)",
                 background: active ? "var(--fg)" : "transparent"
@@ -101,7 +101,7 @@ function ProjectCard({ project: p, index }: { project: Project; index: number })
         <div className="flex flex-wrap items-center gap-3 pt-1">
           <Link
             href={`/work/${p.id}`}
-            className="dot-matrix border hairline border-line rounded-full px-4 py-2 hover:bg-fg hover:text-bg transition-colors"
+            className="dot-matrix border hairline border-line rounded-full px-4 py-2 min-h-[40px] inline-flex items-center hover:bg-fg hover:text-bg active:scale-95 transition-all"
           >
             Read case study →
           </Link>
@@ -111,7 +111,7 @@ function ProjectCard({ project: p, index }: { project: Project; index: number })
               href={l.href}
               target="_blank"
               rel="noreferrer"
-              className="dot-matrix border hairline border-line rounded-full px-4 py-2 hover:bg-fg hover:text-bg transition-colors"
+              className="dot-matrix border hairline border-line rounded-full px-4 py-2 min-h-[40px] inline-flex items-center hover:bg-fg hover:text-bg active:scale-95 transition-all"
             >
               {l.label} ↗
             </a>

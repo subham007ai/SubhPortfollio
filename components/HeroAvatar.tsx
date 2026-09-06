@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function HeroAvatar({ imageSrc, alt }: { imageSrc: string; alt: string }) {
   return (
-    <figure className="group relative w-64 sm:w-80 md:w-96 aspect-square rounded-full overflow-hidden border hairline border-line bg-card shadow-2xl transition-all duration-700 hover:border-fg/40 select-none">
+    <figure className="group relative w-56 sm:w-72 md:w-80 lg:w-96 aspect-square rounded-full overflow-hidden border hairline border-line bg-card shadow-2xl transition-all duration-700 hover:border-fg/40 select-none">
       {/* Fisheye distorted avatar */}
       <Image
         src={imageSrc}

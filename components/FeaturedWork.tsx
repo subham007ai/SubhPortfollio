@@ -6,20 +6,20 @@ const selectedProjects = projects.filter((project) => project.cover).slice(0, 3)
 
 export default function FeaturedWork() {
   return (
-    <section id="selected-work" className="mx-auto max-w-content px-6 md:px-10 pt-6 md:pt-8 pb-16 md:pb-24">
-      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-6 md:mb-8">
+    <section id="selected-work" className="mx-auto max-w-content px-4 sm:px-6 md:px-10 pt-6 md:pt-8 pb-14 sm:pb-16 md:pb-24">
+      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-5 mb-6 md:mb-8">
         <div>
           <p className="dot-matrix mb-2">Projects</p>
-          <h2 className="font-display font-normal text-4xl md:text-5xl tracking-tight leading-none">Featured Work</h2>
+          <h2 className="font-display font-normal text-3xl sm:text-4xl md:text-5xl tracking-tight leading-none">Featured Work</h2>
         </div>
-        <Link href="/work" className="editorial-link text-sm">Browse all projects →</Link>
+        <Link href="/work" className="editorial-link text-sm py-1 inline-block">Browse all projects →</Link>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
         {selectedProjects.map((project) => (
           <article key={project.id} className="group">
             <Link
               href={`/work/${project.id}`}
-              className="block rounded-2xl overflow-hidden bg-card border hairline border-line p-2 sm:p-2.5 card-elevation group-hover:border-lineStrong isolate"
+              className="block rounded-2xl overflow-hidden bg-card border hairline border-line p-2 sm:p-2.5 card-elevation group-hover:border-lineStrong active:scale-[0.99] transition-all isolate"
               style={{ borderRadius: "16px" }}
             >
               <div

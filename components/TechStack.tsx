@@ -152,14 +152,14 @@ function MarqueeRow({ items, direction = "left" }: { items: ToolItem[]; directio
   const animClass = direction === "left" ? "animate-marquee-left" : "animate-marquee-right";
 
   return (
-    <div className="overflow-hidden w-full relative">
-      <div className={`${animClass} gap-3`}>
+    <div className="overflow-hidden w-full relative touch-pan-y">
+      <div className={`${animClass} gap-2.5 sm:gap-3`}>
         {/* Track A */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
           {items.map((tool) => (
             <div
               key={tool.name}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-pill border hairline border-line text-sm text-fg font-medium tracking-tight shadow-sm hover:border-lineStrong hover:scale-[1.02] transition-all select-none group/pill cursor-default"
+              className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-pill border hairline border-line text-xs sm:text-sm text-fg font-medium tracking-tight shadow-sm hover:border-lineStrong hover:scale-[1.02] active:scale-[0.98] transition-all select-none group/pill cursor-default"
             >
               <span className="text-fg/80 group-hover/pill:text-fg group-hover/pill:scale-110 transition-transform">
                 {tool.icon}
@@ -170,11 +170,11 @@ function MarqueeRow({ items, direction = "left" }: { items: ToolItem[]; directio
         </div>
 
         {/* Track B (Duplicate for seamless infinite loop) */}
-        <div className="flex items-center gap-3 shrink-0" aria-hidden="true">
+        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0" aria-hidden="true">
           {items.map((tool, idx) => (
             <div
               key={`${tool.name}-dup-${idx}`}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-pill border hairline border-line text-sm text-fg font-medium tracking-tight shadow-sm hover:border-lineStrong hover:scale-[1.02] transition-all select-none group/pill cursor-default"
+              className="inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-pill border hairline border-line text-xs sm:text-sm text-fg font-medium tracking-tight shadow-sm hover:border-lineStrong hover:scale-[1.02] active:scale-[0.98] transition-all select-none group/pill cursor-default"
             >
               <span className="text-fg/80 group-hover/pill:text-fg group-hover/pill:scale-110 transition-transform">
                 {tool.icon}
@@ -190,14 +190,14 @@ function MarqueeRow({ items, direction = "left" }: { items: ToolItem[]; directio
 
 export default function TechStack() {
   return (
-    <section className="mx-auto max-w-content px-6 md:px-10 py-6 md:py-8">
+    <section className="mx-auto max-w-content px-4 sm:px-6 md:px-10 py-6 md:py-8">
       {/* Title with exact section-heading underline styling */}
-      <div className="mb-5 md:mb-6">
+      <div className="mb-4 sm:mb-5 md:mb-6">
         <h2 className="section-heading text-2xl sm:text-3xl">Tools that I have used</h2>
       </div>
 
-      {/* Dual Marquee Container with smooth edge vignetting and pause on hover */}
-      <div className="marquee-container marquee-mask space-y-3.5 py-1">
+      {/* Dual Marquee Container with smooth edge vignetting and pause on hover/touch */}
+      <div className="marquee-container marquee-mask space-y-2.5 sm:space-y-3.5 py-1">
         <MarqueeRow items={row1} direction="left" />
         <MarqueeRow items={row2} direction="right" />
       </div>

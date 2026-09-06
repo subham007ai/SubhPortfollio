@@ -8,12 +8,12 @@ export const metadata: Metadata = {
 
 export default function NotesPage() {
   return (
-    <div className="mx-auto max-w-content px-6 md:px-10 pt-16 md:pt-24 pb-24">
-      <div className="dot-matrix mb-4">Writing</div>
-      <h1 className="font-display tracking-tightest text-5xl md:text-7xl leading-[0.9] mb-4">
+    <div className="mx-auto max-w-content px-4 sm:px-6 md:px-10 pt-10 sm:pt-16 md:pt-24 pb-20 sm:pb-24">
+      <div className="dot-matrix mb-3 sm:mb-4">Writing</div>
+      <h1 className="font-display tracking-tightest text-4xl sm:text-5xl md:text-7xl leading-[0.9] mb-3 sm:mb-4">
         Notes &amp; Articles.<br /><span className="text-fg/60">Thoughts and learnings.</span>
       </h1>
-      <p className="text-muted max-w-xl mb-16">
+      <p className="text-muted max-w-xl mb-12 sm:mb-16 text-sm sm:text-base leading-relaxed">
         Writing about machine learning experiments, web development, and technical problems I solve along the way.
       </p>
 
