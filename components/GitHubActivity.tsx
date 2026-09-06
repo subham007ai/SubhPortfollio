@@ -268,6 +268,7 @@ export default function GitHubActivity() {
       {/* Heatmap Card with Floating Tooltip */}
       <div
         ref={containerRef}
+        data-lenis-prevent
         className="relative border hairline border-line rounded-2xl p-4 sm:p-5 md:p-6 bg-card/40 backdrop-blur-sm overflow-x-auto no-scrollbar touch-pan-x overscroll-x-contain transition-all duration-300"
         onMouseLeave={() => setTooltip(null)}
       >

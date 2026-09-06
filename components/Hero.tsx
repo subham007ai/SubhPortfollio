@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { profile } from "@/content/profile";
 import HeroAvatar from "./HeroAvatar";
+import SocialDock from "./SocialDock";
 
 export default function Hero() {
   return (
@@ -46,6 +47,10 @@ export default function Hero() {
           <p className="text-sm sm:text-[15px] leading-relaxed text-fg pt-1">
             <strong className="font-semibold">Open to Work:</strong> Freelance, Internships, or Collabs. <Link href="/contact" className="underline underline-offset-4 decoration-accent hover:text-accent font-medium transition-colors">Start a conversation</Link> · <Link href="#selected-work" className="underline underline-offset-4 decoration-muted/60 hover:decoration-fg hover:text-fg transition-colors">View selected work</Link>.
           </p>
+
+          <div className="pt-2">
+            <SocialDock />
+          </div>
         </motion.div>
 
         <motion.div

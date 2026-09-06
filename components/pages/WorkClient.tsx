@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { projects, type Project } from "@/content/projects";
 import { ease } from "@/lib/motion";
+import { GitHubIcon, GlobeIcon, ExternalLinkIcon } from "@/components/SocialDock";
 
 const FILTERS = ["All", ...Array.from(new Set(projects.map(p => p.kind)))];
 
@@ -98,24 +99,37 @@ function ProjectCard({ project: p, index }: { project: Project; index: number })
           ))}
         </div>
 
-        <div className="flex flex-wrap items-center gap-3 pt-1">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-1">
           <Link
             href={`/work/${p.id}`}
-            className="dot-matrix border hairline border-line rounded-full px-4 py-2 min-h-[40px] inline-flex items-center hover:bg-fg hover:text-bg active:scale-95 transition-all"
+            className="dot-matrix border hairline border-line rounded-full px-4 py-2 min-h-[40px] inline-flex items-center hover:bg-fg hover:text-bg active:scale-95 transition-all text-xs tracking-wider mr-1"
           >
             Read case study →
           </Link>
-          {p.links.map(l => (
-            <a
-              key={l.href}
-              href={l.href}
-              target="_blank"
-              rel="noreferrer"
-              className="dot-matrix border hairline border-line rounded-full px-4 py-2 min-h-[40px] inline-flex items-center hover:bg-fg hover:text-bg active:scale-95 transition-all"
-            >
-              {l.label} ↗
-            </a>
-          ))}
+          {p.links.map(l => {
+            const isGit = l.label.toLowerCase().includes("git");
+            const isLive = l.label.toLowerCase().includes("live");
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noreferrer"
+                title={`${l.label} — ${p.title}`}
+                aria-label={`${l.label} link for ${p.title}`}
+                className="p-2 inline-flex items-center justify-center text-muted hover:text-fg hover:scale-115 active:scale-90 transition-all duration-200 group"
+              >
+                {isGit ? (
+                  <GitHubIcon className="w-[19px] h-[19px] transition-transform duration-200 group-hover:scale-110" />
+                ) : isLive ? (
+                  <GlobeIcon className="w-[19px] h-[19px] transition-transform duration-200 group-hover:scale-110" />
+                ) : (
+                  <ExternalLinkIcon className="w-[19px] h-[19px] transition-transform duration-200 group-hover:scale-110" />
+                )}
+                <span className="sr-only">{l.label}</span>
+              </a>
+            );
+          })}
         </div>
       </div>
     </motion.li>

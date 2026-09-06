@@ -137,6 +137,7 @@ export default function Nav() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3, ease }}
               className="fixed inset-0 z-[60] md:hidden"
+              data-lenis-prevent
               style={{ background: "var(--bg)" }}
               onClick={() => setOpen(false)}
             >

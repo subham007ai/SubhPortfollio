@@ -4,6 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import "@fontsource/instrument-serif/400.css";
 import "@fontsource/instrument-serif/400-italic.css";
 import "pullcord/pullcord.css";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -11,6 +12,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { SmoothCursor } from "@/registry/magicui/smooth-cursor";
 import PageTransition from "@/components/PageTransition";
+import SmoothScroll from "@/components/SmoothScroll";
 import { themeInitScript } from "@/lib/theme";
 import { profile } from "@/content/profile";
 
@@ -40,10 +42,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body>
-        <SmoothCursor />
-        <Nav />
-        <PageTransition>{children}</PageTransition>
-        <Footer />
+        <SmoothScroll>
+          <SmoothCursor />
+          <Nav />
+          <PageTransition>{children}</PageTransition>
+          <Footer />
+        </SmoothScroll>
         <Analytics />
         <SpeedInsights />
       </body>

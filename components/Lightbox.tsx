@@ -43,6 +43,7 @@ export default function Lightbox({ photo, onClose }: { photo: LightboxPhoto | nu
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3, ease }}
           className="fixed inset-0 z-[90] bg-bg grid place-items-center p-6 overflow-y-auto"
+          data-lenis-prevent
           onClick={onClose}
         >
           <motion.div

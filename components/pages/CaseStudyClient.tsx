@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import type { Project } from "@/content/projects";
 import { scrollReveal } from "@/lib/motion";
 import Lightbox, { type LightboxPhoto } from "@/components/Lightbox";
+import { GitHubIcon, GlobeIcon, ExternalLinkIcon } from "@/components/SocialDock";
 
 export default function CaseStudyClient({ project: p, next }: { project: Project; next: Project }) {
   const [box, setBox] = useState<LightboxPhoto | null>(null);
@@ -186,18 +187,30 @@ export default function CaseStudyClient({ project: p, next }: { project: Project
           viewport={{ once: true, margin: "-80px" }}
           className="mx-auto max-w-content px-4 sm:px-6 md:px-10 pt-8 sm:pt-10"
         >
-          <div className="flex flex-wrap gap-3">
-            {p.links.map(l => (
-              <a
-                key={l.href}
-                href={l.href}
-                target="_blank"
-                rel="noreferrer"
-                className="dot-matrix border hairline border-line rounded-full px-4 py-2 min-h-[40px] inline-flex items-center hover:bg-fg hover:text-bg active:scale-95 transition-all"
-              >
-                {l.label} ↗
-              </a>
-            ))}
+          <div className="flex flex-wrap items-center gap-3">
+            {p.links.map(l => {
+              const isGit = l.label.toLowerCase().includes("git");
+              const isLive = l.label.toLowerCase().includes("live");
+              return (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="dot-matrix border hairline border-line rounded-full px-4 py-2 min-h-[40px] inline-flex items-center gap-2 hover:bg-fg hover:text-bg active:scale-95 transition-all group text-xs tracking-wider"
+                >
+                  {isGit ? (
+                    <GitHubIcon className="w-[16px] h-[16px] transition-transform duration-200 group-hover:scale-110" />
+                  ) : isLive ? (
+                    <GlobeIcon className="w-[16px] h-[16px] transition-transform duration-200 group-hover:scale-110" />
+                  ) : (
+                    <ExternalLinkIcon className="w-[16px] h-[16px] transition-transform duration-200 group-hover:scale-110" />
+                  )}
+                  <span>{l.label}</span>
+                  <span className="opacity-60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                </a>
+              );
+            })}
           </div>
         </motion.section>
       )}

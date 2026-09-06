@@ -1,4 +1,5 @@
 import { profile } from "@/content/profile";
+import SocialDock from "./SocialDock";
 
 export default function Footer() {
   return (
@@ -10,11 +11,7 @@ export default function Footer() {
             {profile.email}
           </a>
         </div>
-        <div className="flex gap-4 sm:gap-5 dot-matrix flex-wrap">
-          <a href={profile.socials.github} target="_blank" rel="noreferrer" className="hover:text-fg py-1.5 inline-block active:opacity-70">GitHub ↗</a>
-          <a href={profile.socials.linkedin} target="_blank" rel="noreferrer" className="hover:text-fg py-1.5 inline-block active:opacity-70">LinkedIn ↗</a>
-          <a href={profile.socials.x} target="_blank" rel="noreferrer" className="hover:text-fg py-1.5 inline-block active:opacity-70">X ↗</a>
-        </div>
+        <SocialDock />
       </div>
       <div className="border-t hairline border-t-line">
         <div className="mx-auto max-w-content px-4 sm:px-6 md:px-10 py-4 flex flex-wrap justify-between items-center gap-3 dot-matrix text-[10px] sm:text-[11px]">
