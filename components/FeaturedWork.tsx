@@ -6,8 +6,8 @@ const selectedProjects = projects.filter((project) => project.cover).slice(0, 3)
 
 export default function FeaturedWork() {
   return (
-    <section id="selected-work" className="mx-auto max-w-content px-6 md:px-10 py-16 md:py-24">
-      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-10">
+    <section id="selected-work" className="mx-auto max-w-content px-6 md:px-10 pt-6 md:pt-8 pb-16 md:pb-24">
+      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-6 md:mb-8">
         <div>
           <p className="dot-matrix mb-3">Selected work · 03</p>
           <h2 className="font-display font-normal text-4xl md:text-5xl tracking-tight leading-none">Top projects.</h2>

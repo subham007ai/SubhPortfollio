@@ -157,7 +157,7 @@ export default function GitHubActivity() {
   };
 
   return (
-    <section className="mx-auto max-w-content px-6 md:px-10 py-16 md:py-24 border-t hairline border-t-line">
+    <section className="mx-auto max-w-content px-6 md:px-10 py-16 md:py-24">
       {/* Glow Filter */}
       <svg width="0" height="0" className="absolute invisible" aria-hidden="true">
         <defs>

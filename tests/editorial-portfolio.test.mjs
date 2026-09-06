@@ -41,3 +41,17 @@ test("project links do not label a generic GitHub profile as a live preview", as
 
   assert.doesNotMatch(projects, /label: "Live Preview", href: "https:\/\/github\.com\/subham007ai"/);
 });
+
+test("tech stack showcases authentic tools marquee and excludes unverified skills", async () => {
+  const techStack = await read("components/TechStack.tsx");
+
+  assert.match(techStack, /Tools that I have used/);
+  assert.match(techStack, /Python/);
+  assert.match(techStack, /TypeScript/);
+  assert.match(techStack, /OpenCV/);
+  assert.match(techStack, /FastAPI/);
+  assert.match(techStack, /Framer Motion/);
+  assert.doesNotMatch(techStack, /Django/);
+  assert.doesNotMatch(techStack, /pgvector/);
+});
+
